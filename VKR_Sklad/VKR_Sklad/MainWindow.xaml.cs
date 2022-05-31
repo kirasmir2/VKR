@@ -24,5 +24,26 @@ namespace VKR_Sklad
         {
             InitializeComponent();
         }
+
+        private void But_Exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
+        }
+
+        private void but_log_Click(object sender, RoutedEventArgs e)
+        {                   
+            Button but = sender as Button;
+            Barcode_creator barcode_Creator = new Barcode_creator(but.Tag);
+            barcode_Creator.Show();
+            
+        }
     }
 }

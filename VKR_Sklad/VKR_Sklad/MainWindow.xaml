@@ -5,20 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VKR_Sklad"
         mc:Ignorable="d" AllowsTransparency="True"
-        Title="MainWindow" MinHeight="450" MaxHeight="450" MinWidth="500" MaxWidth="500" Height="450" Width="500" WindowStyle="None" Background="Transparent">
-    <Border Background="#ffffff" Grid.Column="1" CornerRadius="10" MouseDown="Border_MouseDown">
-        <Grid>
-
-            <StackPanel Background="#FF2A76FF" Width="500" Height="175"  VerticalAlignment="Top"></StackPanel>
-            <StackPanel VerticalAlignment="Bottom" Width="500" Height="275" Background="#FFE1DFE2"></StackPanel>
+        Title="MainWindow" MinHeight="450" MaxHeight="450" MinWidth="500" MaxWidth="500" Height="450" Width="500" WindowStyle="None" Background="Transparent" WindowStartupLocation="CenterScreen">
+    <Border CornerRadius="25" MouseDown="Border_MouseDown">
+        <Grid Background="#FFE1DFE2">
+          
+                <Border Background="#FF2A76FF" Width="500" Height="175"  VerticalAlignment="Top"></Border>
             <Border Grid.Column="1" CornerRadius="10" Background="White" VerticalAlignment="Center" HorizontalAlignment="Center" Width="300" Height="300">
-                <StackPanel>
-                    <Image Height="70" Width="70" Margin="5" Source="Resources/Image/Login.png"></Image>
-                <TextBlock Text="Данные для входа" HorizontalAlignment="Center" Margin="0,0" FontSize="18" FontFamily="Helvetica"></TextBlock>
-                    <TextBlock Margin="0,50,180,0" HorizontalAlignment="Center" Text="Логин:" FontSize="16" FontFamily="Helvetica"></TextBlock>
-                    <TextBlock Margin="0,20,180,0" HorizontalAlignment="Center" Text="Пароль:" FontSize="16" FontFamily="Helvetica"></TextBlock>
+            <StackPanel>
+                <Image Height="70" Width="70" Margin="5" Source="Resources/Image/Login.png"></Image>
+                <TextBlock TextWrapping="Wrap" Text="Данные для входа" HorizontalAlignment="Center" Margin="0,0" FontSize="18" FontFamily="Helvetica"></TextBlock>
+                <TextBlock Margin="0,50,180,0" HorizontalAlignment="Center" Text="Логин:" FontSize="16" FontFamily="Helvetica"></TextBlock>
+                <TextBlock Margin="0,20,180,0" HorizontalAlignment="Center" Text="Пароль:" FontSize="16" FontFamily="Helvetica"></TextBlock>
+                <Button x:Name="but_log" Content="Войти" Background="#FF74A6FF" Margin="0,30,130,0" Width="100" Height="25" Style="{StaticResource GeneralButton}" Click="but_log_Click"/>
                 </StackPanel>
-            </Border>
+        </Border>
+            <Button x:Name="But_Exit" Height="35" Width="35" Margin="3" Style="{StaticResource MainButton}" Background="White" VerticalAlignment="Top" HorizontalAlignment="Right" Click="But_Exit_Click">
+                <Image Height="20" Width="40" Source="/Resources/Image/Exit.png"></Image>
+            </Button>
+           
         </Grid>
     </Border>
 </Window>
