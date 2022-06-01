@@ -16,9 +16,15 @@
                 <TextBlock TextWrapping="Wrap" Text="Данные для входа" HorizontalAlignment="Center" Margin="0,0" FontSize="18" FontFamily="Helvetica"></TextBlock>
                 <TextBlock Margin="0,50,180,0" HorizontalAlignment="Center" Text="Логин:" FontSize="16" FontFamily="Helvetica"></TextBlock>
                 <TextBlock Margin="0,20,180,0" HorizontalAlignment="Center" Text="Пароль:" FontSize="16" FontFamily="Helvetica"></TextBlock>
-                <Button x:Name="but_log" Content="Войти" Background="#FF74A6FF" Margin="0,30,130,0" Width="100" Height="25" Style="{StaticResource GeneralButton}" Click="but_log_Click"/>
+
+                    <Button x:Name="but_log" Content="Войти" Background="#FF74A6FF" Margin="0,30,130,0" Width="100" Height="25" Style="{StaticResource GeneralButton}" Click="but_log_Click">
+                    </Button>
+                        
+                    
                 </StackPanel>
+                
         </Border>
+            <Button x:Name="but_exit" Content="Выход" Background="#FF74A6FF" Margin="130,205,0,0" Width="100" Height="25" Style="{StaticResource GeneralButton}" Click="but_log_Click"/>
             <Button x:Name="But_Exit" Height="35" Width="35" Margin="3" Style="{StaticResource MainButton}" Background="White" VerticalAlignment="Top" HorizontalAlignment="Right" Click="But_Exit_Click">
                 <Image Height="20" Width="40" Source="/Resources/Image/Exit.png"></Image>
             </Button>
