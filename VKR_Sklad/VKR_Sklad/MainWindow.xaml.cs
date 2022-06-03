@@ -39,10 +39,14 @@ namespace VKR_Sklad
         }
 
         private void but_log_Click(object sender, RoutedEventArgs e)
-        {                   
-            Button but = sender as Button;
-            Barcode_creator barcode_Creator = new Barcode_creator(but.Tag);
-            barcode_Creator.Show();
+        {
+            //Button but = sender as Button;
+            //Barcode_creator barcode_Creator = new Barcode_creator(but.Tag);
+            //barcode_Creator.Show();
+            SkladWindow skladWindow = new SkladWindow();
+            skladWindow.Show();
+            this.Close();
+
             
         }
     }

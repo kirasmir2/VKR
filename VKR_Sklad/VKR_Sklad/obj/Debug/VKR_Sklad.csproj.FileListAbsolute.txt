@@ -33,3 +33,11 @@ C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\bin\Debug\zxing.xml
 C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\bin\Debug\zxing.presentation.xml
 C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\obj\Debug\VKR_Sklad.Barcode_creator.resources
 C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\obj\Debug\VKR_Sklad.csproj.CopyComplete
+C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\bin\Debug\MahApps.Metro.IconPacks.Core.dll
+C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\bin\Debug\MahApps.Metro.IconPacks.Material.dll
+C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\bin\Debug\MahApps.Metro.IconPacks.Core.pdb
+C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\bin\Debug\MahApps.Metro.IconPacks.Core.xml
+C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\bin\Debug\MahApps.Metro.IconPacks.Material.pdb
+C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\bin\Debug\MahApps.Metro.IconPacks.Material.xml
+C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\obj\Debug\SkladWindow.baml
+C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\obj\Debug\SkladWindow.g.cs
