@@ -23,6 +23,14 @@ namespace VKR_Sklad
         public SkladWindow()
         {
             InitializeComponent();
+            var converter = new BrushConverter();
+            ObservableCollection<Member> members = new ObservableCollection<Member>();
+            //Инфо
+            members.Add(new Member { Number = "1", Character = "sad", BgColor = (Brush)converter.ConvertFromString("#ff6d00"), Name = "dasd", Position = "fsdf", Email = "123", Phone = "fsdf" });
+            members.Add(new Member { Number = "1", Character = "sad", BgColor = (Brush)converter.ConvertFromString("#ff6d00"), Name = "dasd", Position = "fsdf", Email = "123", Phone = "fsdf" });
+            members.Add(new Member { Number = "1", Character = "sad", BgColor = (Brush)converter.ConvertFromString("#ff6d00"), Name = "dasd", Position = "fsdf", Email = "123", Phone = "fsdf" });
+
+            memberDataGrid.ItemsSource = members;
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -53,5 +61,16 @@ namespace VKR_Sklad
                 }
             }
         }
+    }
+    public class Member
+    {
+        public string Character { get; set; }
+        public string Number { get; set; }
+        public string Name { get; set; }
+        public string Position { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
+        public Brush BgColor { get; set; }
+
     }
 }
