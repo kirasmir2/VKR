@@ -56,7 +56,7 @@
                         <Button x:Name="but_barcode" Style="{StaticResource MenuButton}" Click="but_barcode_Click">
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="Barcode" Style="{StaticResource menubutton}"/>
-                                <TextBlock Text="Штрихкоды"/>
+                                <TextBlock Text="Штрихкод"/>
                             </StackPanel>
                         </Button>
 
@@ -69,8 +69,8 @@
 
                         <Button Style="{StaticResource MenuButton}">
                             <StackPanel Orientation="Horizontal">
-                                <Icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menubutton}"/>
-                                <TextBlock Text="Вернуться"/>
+                                <Icon:PackIconMaterial Kind="RegisteredTrademark" Style="{StaticResource menubutton}"/>
+                                <TextBlock Text="Зарегестрировать"/>
                             </StackPanel>
                         </Button>
 
@@ -108,7 +108,7 @@
                     <TextBlock Margin="20 0" VerticalAlignment="Center" Foreground="#b0b9c6" IsHitTestVisible="False"
                                Panel.ZIndex="1" Text="Поиск..."
                                Visibility="{Binding ElementName=txtSearch, Path=Text.IsEmpty, Converter={StaticResource BoolToVis}}"/>
-                    <TextBox x:Name="txtSearch" Style="{StaticResource textBoxSearch}"></TextBox>
+                    <TextBox x:Name="txtSearch" Style="{StaticResource textBoxSearch}" TextChanged="txtSearch_TextChanged"></TextBox>
                     <Icon:PackIconMaterial Kind="Magnify" Width="15" Height="15" VerticalAlignment="Center"
                                            Margin="0 0 15 0" Foreground="#b0b9c6" HorizontalAlignment="Right"></Icon:PackIconMaterial>
                 </Grid>
@@ -118,9 +118,7 @@
                     <Icon:PackIconMaterial Kind="Cog"></Icon:PackIconMaterial>
                 </Button>
 
-                <Button Style="{StaticResource topButton}" Margin="0 0 55 0" Background="#dcdcdc" HorizontalAlignment="Right">
-                    <Icon:PackIconMaterial Kind="Bell"></Icon:PackIconMaterial>
-                </Button>
+                
                 
                 <!--Загаловок-->
                 <TextBlock Text="Списки" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0"
@@ -146,13 +144,40 @@
                 </StackPanel>
                 
                 <!--Название счетчика-->
+
+                
+
+
+
+
                 <TextBlock Text="Список товаров" Grid.Row="4" FontSize="18" FontWeight="SemiBold"
                            Foreground="#121518" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
-                <TextBlock Text="Фильтрация по" Grid.Row="4" FontSize="13" FontWeight="SemiBold" Margin="0 0 215 0"
+                <TextBlock Text="Сортировка по" Grid.Row="4" FontSize="13" FontWeight="SemiBold"
+                           Foreground="#121518" HorizontalAlignment="Center" Margin="0 0 280 0" VerticalAlignment="Center"/>
+                <Grid Width="200"  HorizontalAlignment="Center" Grid.Row="4">
+                    <ComboBox Style="{StaticResource comboBoxFiltr}" Name="comboBox_sort" >
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock FontWeight="Bold" Text="{Binding Title}"></TextBlock>
+                                    <CheckBox  Checked="CheckBox_Checked" Unchecked="CheckBox_Checked" Content="По возр." IsChecked="{Binding ASC}"></CheckBox>
+                                    <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Checked" Content="По убыв." IsChecked="{Binding DESC}"></CheckBox>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </Grid>
+                <TextBlock Text="Фильтрация по" Grid.Row="4" FontSize="13" FontWeight="SemiBold" Margin="0 0 200 0"
                            Foreground="#121518" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                 <Grid Width="200" HorizontalAlignment="Right" Grid.Row="4">
-                    <!--Сюда свою фильтрацию!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+                    <ComboBox Style="{StaticResource comboBoxFiltr}" Name="comboBox_filtr" SelectionChanged="comboBox_filtr_SelectionChanged" >
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Checked="CheckBox_Checked" Unchecked="CheckBox_Checked" IsChecked="{Binding IsActive}" Content="{Binding sklad.Nazvanie}"></CheckBox>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
                 </Grid>
               
 

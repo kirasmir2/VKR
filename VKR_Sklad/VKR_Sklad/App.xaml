@@ -192,6 +192,19 @@
         </Setter>
         </Style>
 
+        <Style x:Key="comboBoxFiltr" TargetType="{x:Type ComboBox}">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Width" Value="170"/>
+            <Setter Property="Height" Value="27"/>
+            <Setter Property="Padding" Value="5 5"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0"/>
+        </Style>
+
         <Style x:Key="passBoxLog" TargetType="{x:Type PasswordBox}">
             <Setter Property="Background" Value="#ffffff"/>
             <Setter Property="Foreground" Value="Black"/>

@@ -37,6 +37,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_barcode)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,7 +45,7 @@
             // 
             this.pictureBox_barcode.Location = new System.Drawing.Point(11, 59);
             this.pictureBox_barcode.Name = "pictureBox_barcode";
-            this.pictureBox_barcode.Size = new System.Drawing.Size(100, 100);
+            this.pictureBox_barcode.Size = new System.Drawing.Size(140, 136);
             this.pictureBox_barcode.TabIndex = 0;
             this.pictureBox_barcode.TabStop = false;
             // 
@@ -53,7 +54,7 @@
             this.textBox_name.Location = new System.Drawing.Point(8, 33);
             this.textBox_name.Multiline = true;
             this.textBox_name.Name = "textBox_name";
-            this.textBox_name.Size = new System.Drawing.Size(227, 20);
+            this.textBox_name.Size = new System.Drawing.Size(270, 20);
             this.textBox_name.TabIndex = 1;
             this.textBox_name.TextChanged += new System.EventHandler(this.textBox_name_TextChanged);
             // 
@@ -68,7 +69,7 @@
             "QR_CODE",
             "MSI",
             "DATA_MATRIX"});
-            this.comboBox_name.Location = new System.Drawing.Point(117, 59);
+            this.comboBox_name.Location = new System.Drawing.Point(157, 59);
             this.comboBox_name.Name = "comboBox_name";
             this.comboBox_name.Size = new System.Drawing.Size(121, 21);
             this.comboBox_name.TabIndex = 2;
@@ -76,17 +77,19 @@
             // 
             // but_save
             // 
-            this.but_save.Location = new System.Drawing.Point(137, 200);
+            this.but_save.BackColor = System.Drawing.Color.Transparent;
+            this.but_save.ForeColor = System.Drawing.Color.Black;
+            this.but_save.Location = new System.Drawing.Point(157, 86);
             this.but_save.Name = "but_save";
             this.but_save.Size = new System.Drawing.Size(98, 23);
             this.but_save.TabIndex = 3;
             this.but_save.Text = "Сохранить";
-            this.but_save.UseVisualStyleBackColor = true;
+            this.but_save.UseVisualStyleBackColor = false;
             this.but_save.Click += new System.EventHandler(this.but_save_Click);
             // 
             // but_decipher
             // 
-            this.but_decipher.Location = new System.Drawing.Point(75, 171);
+            this.but_decipher.Location = new System.Drawing.Point(156, 115);
             this.but_decipher.Name = "but_decipher";
             this.but_decipher.Size = new System.Drawing.Size(99, 23);
             this.but_decipher.TabIndex = 4;
@@ -96,7 +99,7 @@
             // 
             // but_download
             // 
-            this.but_download.Location = new System.Drawing.Point(12, 200);
+            this.but_download.Location = new System.Drawing.Point(156, 144);
             this.but_download.Name = "but_download";
             this.but_download.Size = new System.Drawing.Size(99, 23);
             this.but_download.TabIndex = 5;
@@ -112,17 +115,30 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(13, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 14);
+            this.label1.Size = new System.Drawing.Size(95, 14);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Ввод данных:";
+            this.label1.Text = "Введите данные:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(157, 173);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(98, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Выход";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Barcode_creator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(247, 235);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(290, 203);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.but_download);
             this.Controls.Add(this.but_decipher);
@@ -150,5 +166,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }

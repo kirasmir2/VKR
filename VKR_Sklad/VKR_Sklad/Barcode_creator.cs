@@ -16,9 +16,11 @@ namespace VKR_Sklad
 {
     public partial class Barcode_creator : Form
     {
+        
         public Barcode_creator(object id)
         {
             InitializeComponent();
+            
             comboBox_name.DropDownStyle = ComboBoxStyle.DropDown;
         }
 
@@ -135,6 +137,11 @@ namespace VKR_Sklad
         private void textBox_name_TextChanged(object sender, EventArgs e)
         {
             pictureBox_barcode.Image = CreateCode(textBox_name.Text, pictureBox_barcode.Width, pictureBox_barcode.Height, GetFormat());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
