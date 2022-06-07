@@ -34,41 +34,35 @@
                     <Border Width="80" Height="80" Padding="3" Background="White" CornerRadius="100"
                             DockPanel.Dock="Top" HorizontalAlignment="left" Margin="20 -30 0 0">
                         <Ellipse>
-                            <Ellipse.Fill>
-                                <!--Тута лого будет (ImageSource="/Images/P1.jpg")-->
-                                <ImageBrush ></ImageBrush>
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="Resources/Image/Logo.png" Stretch="Uniform"></ImageBrush>
                             </Ellipse.Fill>
                         </Ellipse>
                     </Border>
 
                     <!--Название меню-->
-                    <TextBlock Text="Epta" Foreground="White" FontSize="22" FontWeight="SemiBold"
+                    <TextBlock Text="ПРОТЕК" Foreground="White" FontSize="22" FontWeight="SemiBold"
                                DockPanel.Dock="Top" TextAlignment="Center" Margin="5 25 0 10"></TextBlock>
-                    <TextBlock Text="Фармацептическая компания" Foreground="#d0bfff" FontSize="13" FontWeight="SemiBold"
+                    <TextBlock Text="Фармацептическая компания" Foreground="White" FontSize="13" FontWeight="SemiBold"
                                DockPanel.Dock="Top" TextAlignment="Center"></TextBlock>
 
                     <!--Меню разделителя-->
-                    <Separator Margin="25" DockPanel.Dock="Top" Height="0.8" Background="#7e5fdc"></Separator>
+                    <Separator Margin="25" DockPanel.Dock="Top" Height="0.8" Background="White"></Separator>
 
                     <!--Меню кнопки-->
                     <StackPanel DockPanel.Dock="Top">
-                        <Button Style="{StaticResource MenuButton}">
-                            <StackPanel Orientation="Horizontal">
-                                <Icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menubutton}"/>
-                                <TextBlock Text="Вернуться"/>
-                            </StackPanel>
-                        </Button>
+                        
 
-                        <Button Style="{StaticResource MenuButton}">
+                        <Button x:Name="but_barcode" Style="{StaticResource MenuButton}" Click="but_barcode_Click">
                             <StackPanel Orientation="Horizontal">
-                                <Icon:PackIconMaterial Kind="HammerWrench" Style="{StaticResource menubutton}"/>
+                                <Icon:PackIconMaterial Kind="Barcode" Style="{StaticResource menubutton}"/>
                                 <TextBlock Text="Штрихкоды"/>
                             </StackPanel>
                         </Button>
 
-                        <Button Style="{StaticResource MenuButton}">
+                        <Button x:Name="but_back" Style="{StaticResource MenuButton}" Click="but_back_Click">
                             <StackPanel Orientation="Horizontal">
-                                <Icon:PackIconMaterial Kind="SafeSquare" Style="{StaticResource menubutton}"/>
+                                <Icon:PackIconMaterial Kind="BackspaceOutline" Style="{StaticResource menubutton}"/>
                                 <TextBlock Text="Вернуться"/>
                             </StackPanel>
                         </Button>
@@ -81,7 +75,7 @@
                         </Button>
 
                     </StackPanel>
-                    <Button Style="{StaticResource MenuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0">
+                    <Button x:Name="but_exit" Style="{StaticResource MenuButton}" VerticalAlignment="Bottom" DockPanel.Dock="Bottom" Margin="15 0" Click="but_exit_Click">
                         <StackPanel Orientation="Horizontal">
                             <Icon:PackIconMaterial Kind="Logout" Style="{StaticResource menubutton}"/>
                             <TextBlock Text="Выйти"/>
@@ -129,7 +123,7 @@
                 </Button>
                 
                 <!--Загаловок-->
-                <TextBlock Text="Продукция" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0"
+                <TextBlock Text="Списки" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0"
                            HorizontalAlignment="Left" Foreground="#121518"></TextBlock>
 
                 
@@ -146,13 +140,13 @@
                 
                 <!--Окно вкладки-->
                 <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 10 0 0">
-                    <Button Content="Название" Style="{StaticResource tabButton}" BorderBrush="#eff2f7"></Button>
-                    <Button Content="И тут" Style="{StaticResource tabButton}"></Button>
-                    <Button Content="И тут" Style="{StaticResource tabButton}"></Button>
+                    <Button Content="Товары" Style="{StaticResource tabButton}" BorderBrush="#eff2f7"></Button>
+                    <Button Width="120" Content="Возвратная тара" Style="{StaticResource tabButton}"></Button>
+                    
                 </StackPanel>
                 
                 <!--Название счетчика-->
-                <TextBlock Text="Название чего-то" Grid.Row="4" FontSize="18" FontWeight="SemiBold"
+                <TextBlock Text="Список товаров" Grid.Row="4" FontSize="18" FontWeight="SemiBold"
                            Foreground="#121518" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
                 <TextBlock Text="Фильтрация по" Grid.Row="4" FontSize="13" FontWeight="SemiBold" Margin="0 0 215 0"
@@ -162,8 +156,7 @@
                 </Grid>
               
 
-                <!--Участники dataGrid-->
-
+                <!--Участники dataGrid-->               
                 <DataGrid x:Name="memberDataGrid" Grid.Row="5" RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" Style="{DynamicResource DataGridStyle1}">
                     <DataGrid.Columns>
                         <DataGridCheckBoxColumn CanUserResize="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
@@ -174,7 +167,7 @@
                             </DataGridCheckBoxColumn.HeaderTemplate>
                         </DataGridCheckBoxColumn>
 
-                        <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding Number}"/>
+                        <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding Kod_tovara}"/>
                         <DataGridTemplateColumn Header="Название" IsReadOnly="True" Width="*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -184,17 +177,17 @@
                                             <TextBlock Text="{Binding Character}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Margin="0 0 0 1"></TextBlock>
                                         </Border>
 
-                                        <TextBlock Text="{Binding Name}" VerticalAlignment="Center"></TextBlock>
+                                        <TextBlock Text="{Binding Nazvanie}" VerticalAlignment="Center"></TextBlock>
                                     </StackPanel>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        
-                        <DataGridTextColumn Header="Вид" IsReadOnly="True" Width="*" Binding="{Binding Position}"/>
-                        <DataGridTextColumn Header="Банка" IsReadOnly="True" Width="*" Binding="{Binding Email}"/>
-                        <DataGridTextColumn Header="Склянка" IsReadOnly="True" Width="*" Binding="{Binding Phone}"/>
 
-                        <DataGridTemplateColumn Header="Operations" IsReadOnly="True" Width="auto">
+                        <DataGridTextColumn Header="Количество упаковок" IsReadOnly="True" Width="*" Binding="{Binding Kolitewto_upakovok}"/>
+                        <DataGridTextColumn Header="Цена за упаковку" IsReadOnly="True" Width="*" Binding="{Binding Thena_za_upakowku}"/>
+                        <DataGridTextColumn Header="Тип склада" IsReadOnly="True" Width="*" Binding="{Binding Sklad.Nazvanie}"/>
+
+                        <DataGridTemplateColumn Header="Операции" IsReadOnly="True" Width="auto">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">

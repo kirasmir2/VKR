@@ -4,8 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VKR_Sklad"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"       
         mc:Ignorable="d" AllowsTransparency="True"
         Title="MainWindow" MinHeight="450" MaxHeight="450" MinWidth="500" MaxWidth="500" Height="450" Width="500" WindowStyle="None" Background="Transparent" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+    </Window.Resources>
     <Border CornerRadius="25" MouseDown="Border_MouseDown">
         <Grid Background="#FFE1DFE2">
             <Border Background="#FF2A76FF" Width="500" Height="175"  VerticalAlignment="Top"></Border>
@@ -15,14 +18,25 @@
                     <TextBlock TextWrapping="Wrap" Text="Данные для входа" HorizontalAlignment="Center" Margin="0,0" FontSize="18" FontFamily="Helvetica"></TextBlock>
                     <TextBlock Margin="0,50,180,0" HorizontalAlignment="Center" Text="Логин:" FontSize="16" FontFamily="Helvetica"></TextBlock>
                     <TextBlock Margin="0,20,180,0" HorizontalAlignment="Center" Text="Пароль:" FontSize="16" FontFamily="Helvetica"></TextBlock>
-                    <Button x:Name="but_log" Content="Войти" Background="#FF74A6FF" Margin="0,30,130,0" Width="100" Height="25" Style="{StaticResource GeneralButton}" Click="but_log_Click"></Button>
+                    <Button x:Name="but_log" Margin="0,30,160,0" Width="100" Height="25" Style="{StaticResource addButton}" Click="but_log_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Icon:PackIconMaterial Kind="Login" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"></Icon:PackIconMaterial>
+                            <TextBlock Text="Войти"></TextBlock>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
             </Border>
-            <Button x:Name="but_exit" Content="Выход" Background="#FF74A6FF" Margin="130,205,0,0" Width="100" Height="25" Style="{StaticResource GeneralButton}" Click="but_log_Click"/>
+            <Button x:Name="but_exit" Margin="130,205,130,0" Width="100" Height="25" Style="{StaticResource addButton}" Click="but_exit_Click_1">
+                <StackPanel Orientation="Horizontal">
+                    <Icon:PackIconMaterial Kind="ExitRun" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"></Icon:PackIconMaterial>
+                    <TextBlock Text="Выйти"></TextBlock>
+                </StackPanel>
+            </Button>
             <Button x:Name="But_Exit" Height="35" Width="35" Margin="3" Style="{StaticResource MainButton}" Background="White" VerticalAlignment="Top" HorizontalAlignment="Right" Click="But_Exit_Click">
                 <Image Height="20" Width="40" Source="/Resources/Image/Exit.png"></Image>
             </Button>
-            <TextBox FontSize="16" Name="login" FontFamily="helvetica" FontWeight="Light" Margin="40,20,0,0" HorizontalAlignment="Center" Foreground="Black" Background="Transparent" BorderThickness="0" Width="150" Height="20" HorizontalContentAlignment="Left" Opacity="0.5"></TextBox>
+            <TextBox Style="{StaticResource textBoxLog}"></TextBox>
+            <PasswordBox Style="{StaticResource passBoxLog}"></PasswordBox>
         </Grid>
     </Border>
 </Window>

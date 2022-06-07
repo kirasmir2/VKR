@@ -24,13 +24,21 @@ namespace VKR_Sklad
         {
             InitializeComponent();
             var converter = new BrushConverter();
-            ObservableCollection<Member> members = new ObservableCollection<Member>();
-            //Инфо
-            members.Add(new Member { Number = "1", Character = "sad", BgColor = (Brush)converter.ConvertFromString("#ff6d00"), Name = "dasd", Position = "fsdf", Email = "123", Phone = "fsdf" });
-            members.Add(new Member { Number = "1", Character = "sad", BgColor = (Brush)converter.ConvertFromString("#ff6d00"), Name = "dasd", Position = "fsdf", Email = "123", Phone = "fsdf" });
-            members.Add(new Member { Number = "1", Character = "sad", BgColor = (Brush)converter.ConvertFromString("#ff6d00"), Name = "dasd", Position = "fsdf", Email = "123", Phone = "fsdf" });
+            UpdateData();
 
-            memberDataGrid.ItemsSource = members;
+
+
+
+
+
+
+            //ObservableCollection<Member> members = new ObservableCollection<Member>();
+            //Инфо
+            //members.Add(new Member { Number = "1", Character = "sad", BgColor = (Brush)converter.ConvertFromString("#ff6d00"), Name = "dasd", Position = "fsdf", Email = "123", Phone = "fsdf" });
+            //members.Add(new Member { Number = "1", Character = "sad", BgColor = (Brush)converter.ConvertFromString("#ff6d00"), Name = "dasd", Position = "fsdf", Email = "123", Phone = "fsdf" });
+            //members.Add(new Member { Number = "1", Character = "sad", BgColor = (Brush)converter.ConvertFromString("#ff6d00"), Name = "dasd", Position = "fsdf", Email = "123", Phone = "fsdf" });
+
+            //memberDataGrid.ItemsSource = members;
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -56,10 +64,61 @@ namespace VKR_Sklad
                 else
                 {
                     this.WindowState = WindowState.Maximized;
-                  
+
                     IsMaximized = false;
                 }
             }
+        }
+
+
+
+        public void UpdateData()
+        {
+            LearnBD.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+
+            List<Tovar> tovars = LearnBD.GetContext().Tovar.ToList();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            var massive = from Proverka in LearnBD.GetContext().Proverka
+                          select new
+                          {
+                              Id = Proverka.Id,
+                              Name = Proverka.Name,
+                          };
+
+            memberDataGrid.ItemsSource = tovars.ToList();
+        }
+
+        private void but_exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void but_back_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+
+        private void but_barcode_Click(object sender, RoutedEventArgs e)
+        {
+            Button but = sender as Button;
+            Barcode_creator barcode_Creator = new Barcode_creator(but.Tag);
+            barcode_Creator.Show();
         }
     }
     public class Member
@@ -73,4 +132,5 @@ namespace VKR_Sklad
         public Brush BgColor { get; set; }
 
     }
+
 }

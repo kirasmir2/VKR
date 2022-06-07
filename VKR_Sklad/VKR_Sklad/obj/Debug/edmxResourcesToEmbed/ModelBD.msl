@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище VKR_SkladModelContainer" CdmEntityContainer="VKR_SkladEntities">
+    <EntitySetMapping Name="Proverka">
+      <EntityTypeMapping TypeName="VKR_SkladModel.Proverka">
+        <MappingFragment StoreEntitySet="Proverka">
+          <ScalarProperty Name="Polaris" ColumnName="Polaris" />
+          <ScalarProperty Name="Epta" ColumnName="Epta" />
+          <ScalarProperty Name="OldName" ColumnName="OldName" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sklad">
+      <EntityTypeMapping TypeName="VKR_SkladModel.Sklad">
+        <MappingFragment StoreEntitySet="Sklad">
+          <ScalarProperty Name="Uslovie_xranenia" ColumnName="Uslovie_xranenia" />
+          <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+          <ScalarProperty Name="Nomer_sklada" ColumnName="Nomer_sklada" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tovar">
+      <EntityTypeMapping TypeName="VKR_SkladModel.Tovar">
+        <MappingFragment StoreEntitySet="Tovar">
+          <ScalarProperty Name="Tip_sklada" ColumnName="Tip_sklada" />
+          <ScalarProperty Name="Thena_za_upakowku" ColumnName="Thena_za_upakowku" />
+          <ScalarProperty Name="Kolitewto_upakovok" ColumnName="Kolitewto_upakovok" />
+          <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+          <ScalarProperty Name="Kod_tovara" ColumnName="Kod_tovara" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

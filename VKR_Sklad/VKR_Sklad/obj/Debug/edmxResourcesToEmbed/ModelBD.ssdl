@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище VKR_SkladModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Proverka">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="100" />
+    <Property Name="OldName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Epta" Type="nvarchar" MaxLength="100" />
+    <Property Name="Polaris" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Sklad">
+    <Key>
+      <PropertyRef Name="Nomer_sklada" />
+    </Key>
+    <Property Name="Nomer_sklada" Type="int" Nullable="false" />
+    <Property Name="Nazvanie" Type="nvarchar" MaxLength="200" />
+    <Property Name="Uslovie_xranenia" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Tovar">
+    <Key>
+      <PropertyRef Name="Kod_tovara" />
+    </Key>
+    <Property Name="Kod_tovara" Type="int" Nullable="false" />
+    <Property Name="Nazvanie" Type="nvarchar" MaxLength="200" />
+    <Property Name="Kolitewto_upakovok" Type="nvarchar" MaxLength="200" />
+    <Property Name="Thena_za_upakowku" Type="nvarchar" MaxLength="200" />
+    <Property Name="Tip_sklada" Type="int" />
+  </EntityType>
+  <Association Name="FK_Tovar_Sklad">
+    <End Role="Sklad" Type="Self.Sklad" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tovar" Type="Self.Tovar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sklad">
+        <PropertyRef Name="Nomer_sklada" />
+      </Principal>
+      <Dependent Role="Tovar">
+        <PropertyRef Name="Tip_sklada" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище VKR_SkladModelContainer">
+    <EntitySet Name="Proverka" EntityType="Self.Proverka" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sklad" EntityType="Self.Sklad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tovar" EntityType="Self.Tovar" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Tovar_Sklad" Association="Self.FK_Tovar_Sklad">
+      <End Role="Sklad" EntitySet="Sklad" />
+      <End Role="Tovar" EntitySet="Tovar" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VKR_SkladModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="VKR_SkladEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Proverka" EntityType="VKR_SkladModel.Proverka" />
+    <EntitySet Name="Sklad" EntityType="VKR_SkladModel.Sklad" />
+    <EntitySet Name="Tovar" EntityType="VKR_SkladModel.Tovar" />
+    <AssociationSet Name="FK_Tovar_Sklad" Association="VKR_SkladModel.FK_Tovar_Sklad">
+      <End Role="Sklad" EntitySet="Sklad" />
+      <End Role="Tovar" EntitySet="Tovar" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Proverka">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="OldName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Epta" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Polaris" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Sklad">
+    <Key>
+      <PropertyRef Name="Nomer_sklada" />
+    </Key>
+    <Property Name="Nomer_sklada" Type="Int32" Nullable="false" />
+    <Property Name="Nazvanie" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Uslovie_xranenia" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Tovar" Relationship="VKR_SkladModel.FK_Tovar_Sklad" FromRole="Sklad" ToRole="Tovar" />
+  </EntityType>
+  <EntityType Name="Tovar">
+    <Key>
+      <PropertyRef Name="Kod_tovara" />
+    </Key>
+    <Property Name="Kod_tovara" Type="Int32" Nullable="false" />
+    <Property Name="Nazvanie" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Kolitewto_upakovok" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Thena_za_upakowku" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Tip_sklada" Type="Int32" />
+    <NavigationProperty Name="Sklad" Relationship="VKR_SkladModel.FK_Tovar_Sklad" FromRole="Tovar" ToRole="Sklad" />
+  </EntityType>
+  <Association Name="FK_Tovar_Sklad">
+    <End Type="VKR_SkladModel.Sklad" Role="Sklad" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="VKR_SkladModel.Tovar" Role="Tovar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sklad">
+        <PropertyRef Name="Nomer_sklada" />
+      </Principal>
+      <Dependent Role="Tovar">
+        <PropertyRef Name="Tip_sklada" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

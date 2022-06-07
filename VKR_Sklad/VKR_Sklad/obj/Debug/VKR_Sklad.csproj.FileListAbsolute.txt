@@ -12,7 +12,6 @@ C:\Users\Кирилл\Desktop\VKR_Sklad\VKR_Sklad\obj\Debug\VKR_Sklad.Properties
 C:\Users\Кирилл\Desktop\VKR_Sklad\VKR_Sklad\obj\Debug\VKR_Sklad.csproj.GenerateResource.cache
 C:\Users\Кирилл\Desktop\VKR_Sklad\VKR_Sklad\obj\Debug\VKR_Sklad.exe
 C:\Users\Кирилл\Desktop\VKR_Sklad\VKR_Sklad\obj\Debug\VKR_Sklad.pdb
-C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\obj\Debug\VKR_Sklad.csprojAssemblyReference.cache
 C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\obj\Debug\MainWindow.g.cs
 C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\obj\Debug\App.g.cs
 C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\obj\Debug\VKR_Sklad_MarkupCompile.cache
@@ -41,3 +40,10 @@ C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\bin\Debug\MahApps.Metro.Ic
 C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\bin\Debug\MahApps.Metro.IconPacks.Material.xml
 C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\obj\Debug\SkladWindow.baml
 C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\obj\Debug\SkladWindow.g.cs
+C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\obj\Debug\VKR_Sklad_Content.g.cs
+C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\bin\Debug\EntityFramework.dll
+C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\bin\Debug\EntityFramework.xml
+C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\obj\Debug\VKR_Sklad.csprojAssemblyReference.cache

@@ -7,7 +7,7 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
-
+        <!--Авторизация-->
         <Style x:Key="MainButton" TargetType="{x:Type Button}">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Margin" Value="15 0 15 20"/>
@@ -65,6 +65,7 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <!--Конец-->
 
         <!--Вывод данных-->
 
@@ -157,6 +158,74 @@
             </Setter>
         </Style>
 
+        <Style x:Key="textBoxLog" TargetType="{x:Type TextBox}">
+        <Setter Property="Background" Value="#ffffff"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Width" Value="170"/>
+        <Setter Property="Height" Value="27"/>
+        <Setter Property="Padding" Value="5 5"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="60 20 0 0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                    <Border x:Name="border" CornerRadius="5" Background="{TemplateBinding Background}" SnapsToDevicePixels="True"
+                                BorderThickness="1" BorderBrush="#e0e6ed">
+                        <ScrollViewer x:Name="PART_ContentHost" Focusable="False" HorizontalScrollBarVisibility="Hidden"
+                                          VerticalScrollBarVisibility="Hidden"/>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="black" TargetName="border"/>
+                        </Trigger>
+
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter Property="BorderBrush" Value="black" TargetName="border"/>
+                        </Trigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        </Style>
+
+        <Style x:Key="passBoxLog" TargetType="{x:Type PasswordBox}">
+            <Setter Property="Background" Value="#ffffff"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Width" Value="170"/>
+            <Setter Property="Height" Value="27"/>
+            <Setter Property="Padding" Value="5 5"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="60 100 0 0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Border x:Name="border" CornerRadius="5" Background="{TemplateBinding Background}" SnapsToDevicePixels="True"
+                                BorderThickness="1" BorderBrush="#e0e6ed">
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="False" HorizontalScrollBarVisibility="Hidden"
+                                          VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="BorderBrush" Value="black" TargetName="border"/>
+                            </Trigger>
+
+                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                <Setter Property="BorderBrush" Value="black" TargetName="border"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style x:Key="addButton" TargetType="{x:Type Button}">
             <Setter Property="Background" Value="#2a76ff"/>
             <Setter Property="Foreground" Value="#ffffff"/>
@@ -179,7 +248,7 @@
 
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#7b5cd6"/>
+                    <Setter Property="Background" Value="#FF74A6FF"/>
                     <Setter Property="Foreground" Value="#ffffff"/>
                 </Trigger>
             </Style.Triggers>
@@ -281,6 +350,7 @@
             <Setter Property="Height" Value="12"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
         </Style>
+        <!--Конец-->
 
         <!--Настройки таблицы стиля-->
         <Style x:Key="DataGridRowStyle1" TargetType="{x:Type DataGridRow}">
@@ -453,7 +523,7 @@
                 </MultiTrigger>
             </Style.Triggers>
         </Style>
-        
+        <!--Конец-->
         
         <!--Настройка стиля CheckBox-->
         <SolidColorBrush x:Key="OptionMark.Static.Background" Color="#FFFFFFFF"/>
