@@ -18,9 +18,9 @@
             <!--Левое меню-->
             <Grid>
                 <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+                  <RowDefinition Height="auto"/>
+                  <RowDefinition Height="*"/>
+                 </Grid.RowDefinitions>
             
             <!--Меню иконки-->
 
@@ -126,7 +126,7 @@
 
                 
                 <!--Кнопка добавления-->
-                <Button Style="{StaticResource addButton}">
+                <Button x:Name="but_add" Style="{StaticResource addButton}" Click="but_add_Click">
                     <StackPanel Orientation="Horizontal">
                         <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"></Icon:PackIconMaterial>
                         <TextBlock Text="Добавить"></TextBlock>

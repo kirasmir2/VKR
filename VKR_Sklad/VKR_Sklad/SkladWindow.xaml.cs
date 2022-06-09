@@ -195,6 +195,12 @@ namespace VKR_Sklad
         {
             UpdateData();
         }
+
+        private void but_add_Click(object sender, RoutedEventArgs e)
+        {
+            AddWindow addWindow = new AddWindow();
+            addWindow.Show();
+        }
     }
     public class Member
     {
