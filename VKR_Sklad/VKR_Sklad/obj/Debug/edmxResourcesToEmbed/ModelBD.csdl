@@ -1,24 +1,56 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="VKR_SkladModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="VKR_SkladEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Proverka" EntityType="VKR_SkladModel.Proverka" />
+    <EntitySet Name="Dolwnost" EntityType="VKR_SkladModel.Dolwnost" />
+    <EntitySet Name="Proizvoditel" EntityType="VKR_SkladModel.Proizvoditel" />
     <EntitySet Name="Sklad" EntityType="VKR_SkladModel.Sklad" />
+    <EntitySet Name="Sotrudnik" EntityType="VKR_SkladModel.Sotrudnik" />
     <EntitySet Name="Tovar" EntityType="VKR_SkladModel.Tovar" />
+    <EntitySet Name="Vozvratnaia_tara" EntityType="VKR_SkladModel.Vozvratnaia_tara" />
+    <EntitySet Name="Vozvratnia_tara_Tovar" EntityType="VKR_SkladModel.Vozvratnia_tara_Tovar" />
+    <AssociationSet Name="FK_Sotrudnik_Dolwnost" Association="VKR_SkladModel.FK_Sotrudnik_Dolwnost">
+      <End Role="Dolwnost" EntitySet="Dolwnost" />
+      <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tovar_Proizvoditel" Association="VKR_SkladModel.FK_Tovar_Proizvoditel">
+      <End Role="Proizvoditel" EntitySet="Proizvoditel" />
+      <End Role="Tovar" EntitySet="Tovar" />
+    </AssociationSet>
     <AssociationSet Name="FK_Tovar_Sklad" Association="VKR_SkladModel.FK_Tovar_Sklad">
       <End Role="Sklad" EntitySet="Sklad" />
       <End Role="Tovar" EntitySet="Tovar" />
     </AssociationSet>
+    <AssociationSet Name="FK_Vozvratnaia_tara_Sotrudnik" Association="VKR_SkladModel.FK_Vozvratnaia_tara_Sotrudnik">
+      <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+      <End Role="Vozvratnaia_tara" EntitySet="Vozvratnaia_tara" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vozvratnia_tara_Tovar_Tovar" Association="VKR_SkladModel.FK_Vozvratnia_tara_Tovar_Tovar">
+      <End Role="Tovar" EntitySet="Tovar" />
+      <End Role="Vozvratnia_tara_Tovar" EntitySet="Vozvratnia_tara_Tovar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vozvratnia_tara_Tovar_Vozvratnaia_tara" Association="VKR_SkladModel.FK_Vozvratnia_tara_Tovar_Vozvratnaia_tara">
+      <End Role="Vozvratnaia_tara" EntitySet="Vozvratnaia_tara" />
+      <End Role="Vozvratnia_tara_Tovar" EntitySet="Vozvratnia_tara_Tovar" />
+    </AssociationSet>
   </EntityContainer>
-  <EntityType Name="Proverka">
+  <EntityType Name="Dolwnost">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="Kod_dolwnosti" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Surname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="OldName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Epta" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Polaris" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Kod_dolwnosti" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nazvanie" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Oklad" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Dolwnostnii_obiazannosti" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Sotrudnik" Relationship="VKR_SkladModel.FK_Sotrudnik_Dolwnost" FromRole="Dolwnost" ToRole="Sotrudnik" />
+  </EntityType>
+  <EntityType Name="Proizvoditel">
+    <Key>
+      <PropertyRef Name="Kod_proizvoditelia" />
+    </Key>
+    <Property Name="Kod_proizvoditelia" Type="Int32" Nullable="false" />
+    <Property Name="Nazvanie_kompanii" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Kontaktnie_dannie" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Tovar" Relationship="VKR_SkladModel.FK_Tovar_Proizvoditel" FromRole="Proizvoditel" ToRole="Tovar" />
   </EntityType>
   <EntityType Name="Sklad">
     <Key>
@@ -26,20 +58,93 @@
     </Key>
     <Property Name="Nomer_sklada" Type="Int32" Nullable="false" />
     <Property Name="Nazvanie" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="Uslovie_xranenia" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Uslovie_xranenia" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Tovar" Relationship="VKR_SkladModel.FK_Tovar_Sklad" FromRole="Sklad" ToRole="Tovar" />
+  </EntityType>
+  <EntityType Name="Sotrudnik">
+    <Key>
+      <PropertyRef Name="ID_sotrudnika" />
+    </Key>
+    <Property Name="ID_sotrudnika" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Wamilia" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Imia" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Otwewto" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Passportnii_dannie" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Nomer_telewona" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Adress" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Login" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Parol" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Dolwnost" Type="Int32" />
+    <NavigationProperty Name="Dolwnost1" Relationship="VKR_SkladModel.FK_Sotrudnik_Dolwnost" FromRole="Sotrudnik" ToRole="Dolwnost" />
+    <NavigationProperty Name="Vozvratnaia_tara" Relationship="VKR_SkladModel.FK_Vozvratnaia_tara_Sotrudnik" FromRole="Sotrudnik" ToRole="Vozvratnaia_tara" />
   </EntityType>
   <EntityType Name="Tovar">
     <Key>
       <PropertyRef Name="Kod_tovara" />
     </Key>
-    <Property Name="Kod_tovara" Type="Int32" Nullable="false" />
-    <Property Name="Nazvanie" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="Kolitewto_upakovok" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="Thena_za_upakowku" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Kod_tovara" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nazvanie" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Kolitewto_upakowok" Type="Int32" />
+    <Property Name="Tena" Type="Int32" />
     <Property Name="Tip_sklada" Type="Int32" />
+    <Property Name="Proizvoditel" Type="Int32" />
+    <NavigationProperty Name="Proizvoditel1" Relationship="VKR_SkladModel.FK_Tovar_Proizvoditel" FromRole="Tovar" ToRole="Proizvoditel" />
     <NavigationProperty Name="Sklad" Relationship="VKR_SkladModel.FK_Tovar_Sklad" FromRole="Tovar" ToRole="Sklad" />
+    <NavigationProperty Name="Vozvratnia_tara_Tovar" Relationship="VKR_SkladModel.FK_Vozvratnia_tara_Tovar_Tovar" FromRole="Tovar" ToRole="Vozvratnia_tara_Tovar" />
   </EntityType>
+  <EntityType Name="Vozvratnaia_tara">
+    <Key>
+      <PropertyRef Name="Nomer_vozvratnoi_tari" />
+    </Key>
+    <Property Name="Nomer_vozvratnoi_tari" Type="Int32" Nullable="false" />
+    <Property Name="Nazvanie_klienta" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Kplitewto_upakowok" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Ves" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Data_postavki" Type="DateTime" Precision="3" />
+    <Property Name="Adres_postavki" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="Sotrudniki" Type="Int32" />
+    <Property Name="Wtrix_kod" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Sotrudnik" Relationship="VKR_SkladModel.FK_Vozvratnaia_tara_Sotrudnik" FromRole="Vozvratnaia_tara" ToRole="Sotrudnik" />
+    <NavigationProperty Name="Vozvratnia_tara_Tovar" Relationship="VKR_SkladModel.FK_Vozvratnia_tara_Tovar_Vozvratnaia_tara" FromRole="Vozvratnaia_tara" ToRole="Vozvratnia_tara_Tovar" />
+  </EntityType>
+  <EntityType Name="Vozvratnia_tara_Tovar">
+    <Key>
+      <PropertyRef Name="Kod" />
+    </Key>
+    <Property Name="Kod" Type="Int32" Nullable="false" />
+    <Property Name="Kod_Tovara" Type="Int32" />
+    <Property Name="Kod_Vozvratnoi_tari" Type="Int32" />
+    <NavigationProperty Name="Tovar" Relationship="VKR_SkladModel.FK_Vozvratnia_tara_Tovar_Tovar" FromRole="Vozvratnia_tara_Tovar" ToRole="Tovar" />
+    <NavigationProperty Name="Vozvratnaia_tara" Relationship="VKR_SkladModel.FK_Vozvratnia_tara_Tovar_Vozvratnaia_tara" FromRole="Vozvratnia_tara_Tovar" ToRole="Vozvratnaia_tara" />
+  </EntityType>
+  <Association Name="FK_Sotrudnik_Dolwnost">
+    <End Type="VKR_SkladModel.Dolwnost" Role="Dolwnost" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="VKR_SkladModel.Sotrudnik" Role="Sotrudnik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dolwnost">
+        <PropertyRef Name="Kod_dolwnosti" />
+      </Principal>
+      <Dependent Role="Sotrudnik">
+        <PropertyRef Name="Dolwnost" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tovar_Proizvoditel">
+    <End Type="VKR_SkladModel.Proizvoditel" Role="Proizvoditel" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="VKR_SkladModel.Tovar" Role="Tovar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proizvoditel">
+        <PropertyRef Name="Kod_proizvoditelia" />
+      </Principal>
+      <Dependent Role="Tovar">
+        <PropertyRef Name="Proizvoditel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Tovar_Sklad">
     <End Type="VKR_SkladModel.Sklad" Role="Sklad" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
@@ -51,6 +156,48 @@
       </Principal>
       <Dependent Role="Tovar">
         <PropertyRef Name="Tip_sklada" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vozvratnaia_tara_Sotrudnik">
+    <End Type="VKR_SkladModel.Sotrudnik" Role="Sotrudnik" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="VKR_SkladModel.Vozvratnaia_tara" Role="Vozvratnaia_tara" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sotrudnik">
+        <PropertyRef Name="ID_sotrudnika" />
+      </Principal>
+      <Dependent Role="Vozvratnaia_tara">
+        <PropertyRef Name="Sotrudniki" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vozvratnia_tara_Tovar_Tovar">
+    <End Type="VKR_SkladModel.Tovar" Role="Tovar" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="VKR_SkladModel.Vozvratnia_tara_Tovar" Role="Vozvratnia_tara_Tovar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tovar">
+        <PropertyRef Name="Kod_tovara" />
+      </Principal>
+      <Dependent Role="Vozvratnia_tara_Tovar">
+        <PropertyRef Name="Kod_Tovara" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vozvratnia_tara_Tovar_Vozvratnaia_tara">
+    <End Type="VKR_SkladModel.Vozvratnaia_tara" Role="Vozvratnaia_tara" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="VKR_SkladModel.Vozvratnia_tara_Tovar" Role="Vozvratnia_tara_Tovar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vozvratnaia_tara">
+        <PropertyRef Name="Nomer_vozvratnoi_tari" />
+      </Principal>
+      <Dependent Role="Vozvratnia_tara_Tovar">
+        <PropertyRef Name="Kod_Vozvratnoi_tari" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

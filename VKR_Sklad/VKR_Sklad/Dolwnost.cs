@@ -12,24 +12,20 @@ namespace VKR_Sklad
     using System;
     using System.Collections.Generic;
     
-    public partial class Tovar
+    public partial class Dolwnost
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tovar()
+        public Dolwnost()
         {
-            this.Vozvratnia_tara_Tovar = new HashSet<Vozvratnia_tara_Tovar>();
+            this.Sotrudnik = new HashSet<Sotrudnik>();
         }
     
-        public int Kod_tovara { get; set; }
+        public int Kod_dolwnosti { get; set; }
         public string Nazvanie { get; set; }
-        public Nullable<int> Kolitewto_upakowok { get; set; }
-        public Nullable<int> Tena { get; set; }
-        public Nullable<int> Tip_sklada { get; set; }
-        public Nullable<int> Proizvoditel { get; set; }
+        public string Oklad { get; set; }
+        public string Dolwnostnii_obiazannosti { get; set; }
     
-        public virtual Proizvoditel Proizvoditel1 { get; set; }
-        public virtual Sklad Sklad { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Vozvratnia_tara_Tovar> Vozvratnia_tara_Tovar { get; set; }
+        public virtual ICollection<Sotrudnik> Sotrudnik { get; set; }
     }
 }

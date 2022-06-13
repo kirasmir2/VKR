@@ -144,8 +144,8 @@ namespace VKR_Sklad
                         else if (sort.DESC) tovars = tovars.OrderByDescending(p => p.Nazvanie).ToList();
                         break;
                     case 2:
-                        if (sort.ASC) tovars = tovars.OrderBy(p => p.Thena_za_upakowku).ToList();
-                        else if (sort.DESC) tovars = tovars.OrderByDescending(p => p.Thena_za_upakowku).ToList();
+                        if (sort.ASC) tovars = tovars.OrderBy(p => p.Tena).ToList();
+                        else if (sort.DESC) tovars = tovars.OrderByDescending(p => p.Tena).ToList();
                         break;
                 }
             }
@@ -200,6 +200,13 @@ namespace VKR_Sklad
         {
             AddWindow addWindow = new AddWindow();
             addWindow.Show();
+        }
+
+        private void Edit_but_Click(object sender, RoutedEventArgs e)
+        {
+            EditWindow editWindow = new EditWindow();
+            editWindow.Show();
+
         }
     }
     public class Member

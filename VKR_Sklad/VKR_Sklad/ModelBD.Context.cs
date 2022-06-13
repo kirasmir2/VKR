@@ -25,8 +25,12 @@ namespace VKR_Sklad
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Proverka> Proverka { get; set; }
+        public virtual DbSet<Dolwnost> Dolwnost { get; set; }
+        public virtual DbSet<Proizvoditel> Proizvoditel { get; set; }
         public virtual DbSet<Sklad> Sklad { get; set; }
+        public virtual DbSet<Sotrudnik> Sotrudnik { get; set; }
         public virtual DbSet<Tovar> Tovar { get; set; }
+        public virtual DbSet<Vozvratnaia_tara> Vozvratnaia_tara { get; set; }
+        public virtual DbSet<Vozvratnia_tara_Tovar> Vozvratnia_tara_Tovar { get; set; }
     }
 }

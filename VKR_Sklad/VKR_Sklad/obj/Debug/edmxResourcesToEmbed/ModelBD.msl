@@ -1,15 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="Хранилище VKR_SkladModelContainer" CdmEntityContainer="VKR_SkladEntities">
-    <EntitySetMapping Name="Proverka">
-      <EntityTypeMapping TypeName="VKR_SkladModel.Proverka">
-        <MappingFragment StoreEntitySet="Proverka">
-          <ScalarProperty Name="Polaris" ColumnName="Polaris" />
-          <ScalarProperty Name="Epta" ColumnName="Epta" />
-          <ScalarProperty Name="OldName" ColumnName="OldName" />
-          <ScalarProperty Name="Surname" ColumnName="Surname" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
+    <EntitySetMapping Name="Dolwnost">
+      <EntityTypeMapping TypeName="VKR_SkladModel.Dolwnost">
+        <MappingFragment StoreEntitySet="Dolwnost">
+          <ScalarProperty Name="Dolwnostnii_obiazannosti" ColumnName="Dolwnostnii_obiazannosti" />
+          <ScalarProperty Name="Oklad" ColumnName="Oklad" />
+          <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+          <ScalarProperty Name="Kod_dolwnosti" ColumnName="Kod_dolwnosti" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Proizvoditel">
+      <EntityTypeMapping TypeName="VKR_SkladModel.Proizvoditel">
+        <MappingFragment StoreEntitySet="Proizvoditel">
+          <ScalarProperty Name="Kontaktnie_dannie" ColumnName="Kontaktnie_dannie" />
+          <ScalarProperty Name="Nazvanie_kompanii" ColumnName="Nazvanie_kompanii" />
+          <ScalarProperty Name="Kod_proizvoditelia" ColumnName="Kod_proizvoditelia" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -22,14 +29,54 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Sotrudnik">
+      <EntityTypeMapping TypeName="VKR_SkladModel.Sotrudnik">
+        <MappingFragment StoreEntitySet="Sotrudnik">
+          <ScalarProperty Name="Dolwnost" ColumnName="Dolwnost" />
+          <ScalarProperty Name="Parol" ColumnName="Parol" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="Nomer_telewona" ColumnName="Nomer_telewona" />
+          <ScalarProperty Name="Passportnii_dannie" ColumnName="Passportnii_dannie" />
+          <ScalarProperty Name="Otwewto" ColumnName="Otwewto" />
+          <ScalarProperty Name="Imia" ColumnName="Imia" />
+          <ScalarProperty Name="Wamilia" ColumnName="Wamilia" />
+          <ScalarProperty Name="ID_sotrudnika" ColumnName="ID_sotrudnika" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Tovar">
       <EntityTypeMapping TypeName="VKR_SkladModel.Tovar">
         <MappingFragment StoreEntitySet="Tovar">
+          <ScalarProperty Name="Proizvoditel" ColumnName="Proizvoditel" />
           <ScalarProperty Name="Tip_sklada" ColumnName="Tip_sklada" />
-          <ScalarProperty Name="Thena_za_upakowku" ColumnName="Thena_za_upakowku" />
-          <ScalarProperty Name="Kolitewto_upakovok" ColumnName="Kolitewto_upakovok" />
+          <ScalarProperty Name="Tena" ColumnName="Tena" />
+          <ScalarProperty Name="Kolitewto_upakowok" ColumnName="Kolitewto_upakowok" />
           <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
           <ScalarProperty Name="Kod_tovara" ColumnName="Kod_tovara" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vozvratnaia_tara">
+      <EntityTypeMapping TypeName="VKR_SkladModel.Vozvratnaia_tara">
+        <MappingFragment StoreEntitySet="Vozvratnaia_tara">
+          <ScalarProperty Name="Wtrix_kod" ColumnName="Wtrix_kod" />
+          <ScalarProperty Name="Sotrudniki" ColumnName="Sotrudniki" />
+          <ScalarProperty Name="Adres_postavki" ColumnName="Adres_postavki" />
+          <ScalarProperty Name="Data_postavki" ColumnName="Data_postavki" />
+          <ScalarProperty Name="Ves" ColumnName="Ves" />
+          <ScalarProperty Name="Kplitewto_upakowok" ColumnName="Kplitewto_upakowok" />
+          <ScalarProperty Name="Nazvanie_klienta" ColumnName="Nazvanie_klienta" />
+          <ScalarProperty Name="Nomer_vozvratnoi_tari" ColumnName="Nomer_vozvratnoi_tari" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vozvratnia_tara_Tovar">
+      <EntityTypeMapping TypeName="VKR_SkladModel.Vozvratnia_tara_Tovar">
+        <MappingFragment StoreEntitySet="Vozvratnia_tara/Tovar">
+          <ScalarProperty Name="Kod_Vozvratnoi_tari" ColumnName="Kod_Vozvratnoi_tari" />
+          <ScalarProperty Name="Kod_Tovara" ColumnName="Kod_Tovara" />
+          <ScalarProperty Name="Kod" ColumnName="Kod" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

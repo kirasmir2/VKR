@@ -15,15 +15,15 @@ using System.Windows.Shapes;
 namespace VKR_Sklad
 {
     /// <summary>
-    /// Логика взаимодействия для AddWindow.xaml
+    /// Логика взаимодействия для EditWindow.xaml
     /// </summary>
-    public partial class AddWindow : Window
+    public partial class EditWindow : Window
     {
-        public AddWindow()
+        public EditWindow()
         {
             InitializeComponent();
         }
-        
+
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)

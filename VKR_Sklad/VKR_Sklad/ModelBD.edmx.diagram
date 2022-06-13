@@ -5,10 +5,19 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="53bcca0b8d4947c3b46ddaee0c365741" Name="Diagram1">
-        <EntityTypeShape EntityType="VKR_SkladModel.Proverka" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="VKR_SkladModel.Sklad" Width="1.5" PointX="3.375" PointY="2.125" />
-        <EntityTypeShape EntityType="VKR_SkladModel.Tovar" Width="1.5" PointX="5.625" PointY="1.875" />
+        <EntityTypeShape EntityType="VKR_SkladModel.Dolwnost" Width="1.5" PointX="1.5" PointY="12.75" />
+        <EntityTypeShape EntityType="VKR_SkladModel.Proizvoditel" Width="1.5" PointX="0.75" PointY="1.5" />
+        <EntityTypeShape EntityType="VKR_SkladModel.Sklad" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="VKR_SkladModel.Sotrudnik" Width="1.5" PointX="0.75" PointY="8" />
+        <EntityTypeShape EntityType="VKR_SkladModel.Tovar" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="VKR_SkladModel.Vozvratnaia_tara" Width="1.5" PointX="3" PointY="8.25" />
+        <EntityTypeShape EntityType="VKR_SkladModel.Vozvratnia_tara_Tovar" Width="1.5" PointX="5.25" PointY="1.375" />
+        <AssociationConnector Association="VKR_SkladModel.FK_Sotrudnik_Dolwnost" />
+        <AssociationConnector Association="VKR_SkladModel.FK_Tovar_Proizvoditel" />
         <AssociationConnector Association="VKR_SkladModel.FK_Tovar_Sklad" />
+        <AssociationConnector Association="VKR_SkladModel.FK_Vozvratnaia_tara_Sotrudnik" />
+        <AssociationConnector Association="VKR_SkladModel.FK_Vozvratnia_tara_Tovar_Tovar" />
+        <AssociationConnector Association="VKR_SkladModel.FK_Vozvratnia_tara_Tovar_Vozvratnaia_tara" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

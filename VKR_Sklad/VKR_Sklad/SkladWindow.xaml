@@ -43,7 +43,7 @@
                     <!--Название меню-->
                     <TextBlock Text="ПРОТЕК" Foreground="White" FontSize="22" FontWeight="SemiBold"
                                DockPanel.Dock="Top" TextAlignment="Center" Margin="5 25 0 10"></TextBlock>
-                    <TextBlock Text="Фармацептическая компания" Foreground="White" FontSize="13" FontWeight="SemiBold"
+                        <TextBlock Text="Фармацевтическая компания" Foreground="White" FontSize="13" FontWeight="SemiBold"
                                DockPanel.Dock="Top" TextAlignment="Center"></TextBlock>
 
                     <!--Меню разделителя-->
@@ -59,8 +59,15 @@
                                 <TextBlock Text="Штрихкод"/>
                             </StackPanel>
                         </Button>
+                        
+                            <Button x:Name="otwet_barcode" Style="{StaticResource MenuButton}" Click="but_barcode_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="Printer" Style="{StaticResource menubutton}"/>
+                                    <TextBlock Text="Отчёт"/>
+                                </StackPanel>
+                            </Button>
 
-                        <Button x:Name="but_back" Style="{StaticResource MenuButton}" Click="but_back_Click">
+                            <Button x:Name="but_back" Style="{StaticResource MenuButton}" Click="but_back_Click">
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="BackspaceOutline" Style="{StaticResource menubutton}"/>
                                 <TextBlock Text="Вернуться"/>
@@ -70,7 +77,7 @@
                         <Button Style="{StaticResource MenuButton}">
                             <StackPanel Orientation="Horizontal">
                                 <Icon:PackIconMaterial Kind="RegisteredTrademark" Style="{StaticResource menubutton}"/>
-                                <TextBlock Text="Зарегестрировать"/>
+                                <TextBlock Text="Зарегистрировать"/>
                             </StackPanel>
                         </Button>
 
@@ -139,7 +146,7 @@
                 <!--Окно вкладки-->
                 <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 10 0 0">
                     <Button Content="Товары" Style="{StaticResource tabButton}" BorderBrush="#eff2f7"></Button>
-                    <Button Width="120" Content="Возвратная тара" Style="{StaticResource tabButton}"></Button>
+                    <Button Width="120" Content="Заказы" Style="{StaticResource tabButton}"></Button>
                     
                 </StackPanel>
                 
@@ -208,15 +215,16 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
-                        <DataGridTextColumn Header="Количество упаковок" IsReadOnly="True" Width="*" Binding="{Binding Kolitewto_upakovok}"/>
-                        <DataGridTextColumn Header="Цена за упаковку" IsReadOnly="True" Width="*" Binding="{Binding Thena_za_upakowku}"/>
+                        <DataGridTextColumn Header="Количество упаковок" IsReadOnly="True" Width="*" Binding="{Binding Kolitewto_upakowok}"/>
+                        <DataGridTextColumn Header="Цена за упаковку" IsReadOnly="True" Width="*" Binding="{Binding Tena}"/>
                         <DataGridTextColumn Header="Тип склада" IsReadOnly="True" Width="*" Binding="{Binding Sklad.Nazvanie}"/>
+                        <DataGridTextColumn Header="Производитель" IsReadOnly="True" Width="*" Binding="{Binding Proizvoditel1.Nazvanie_kompanii}"/>
 
                         <DataGridTemplateColumn Header="Операции" IsReadOnly="True" Width="auto">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <Button Style="{StaticResource gridEditButton}">
+                                        <Button x:Name="Edit_but" Style="{StaticResource gridEditButton}" Click="Edit_but_Click">
                                             <Icon:PackIconMaterial Kind="PencilOffOutline"></Icon:PackIconMaterial>
                                         </Button>
                                         <Button Style="{StaticResource gridRemoveButton}" Margin="5 0 0 0">
