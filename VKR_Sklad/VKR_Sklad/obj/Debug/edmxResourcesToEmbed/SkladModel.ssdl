@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище VKRskladModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Dolwnost">
+    <Key>
+      <PropertyRef Name="Kod_dolwnosti" />
+    </Key>
+    <Property Name="Kod_dolwnosti" Type="int" Nullable="false" />
+    <Property Name="Nazvanie" Type="nvarchar" MaxLength="200" />
+    <Property Name="Oklad" Type="nvarchar" MaxLength="200" />
+    <Property Name="Dolwnostnii_obiazannosti" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Proizvoditel">
+    <Key>
+      <PropertyRef Name="Kod_proizvoditelia" />
+    </Key>
+    <Property Name="Kod_proizvoditelia" Type="int" Nullable="false" />
+    <Property Name="Nazvanie_kompanii" Type="nvarchar" MaxLength="200" />
+    <Property Name="Adres" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Sklad">
+    <Key>
+      <PropertyRef Name="Nomer_sklada" />
+    </Key>
+    <Property Name="Nomer_sklada" Type="int" Nullable="false" />
+    <Property Name="Nazvanie" Type="nvarchar" MaxLength="200" />
+    <Property Name="Uslovie_xranenia" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Sotrudnik">
+    <Key>
+      <PropertyRef Name="ID_sotrudnika" />
+    </Key>
+    <Property Name="ID_sotrudnika" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Wamilia" Type="nvarchar" MaxLength="200" />
+    <Property Name="Imia" Type="nvarchar" MaxLength="200" />
+    <Property Name="Otwewto" Type="nvarchar" MaxLength="200" />
+    <Property Name="Passportnii_dannie" Type="nvarchar" MaxLength="200" />
+    <Property Name="Nomer_telewona" Type="nvarchar" MaxLength="200" />
+    <Property Name="Adres" Type="nvarchar" MaxLength="400" />
+    <Property Name="Login" Type="nvarchar" MaxLength="200" />
+    <Property Name="Parol" Type="nvarchar" MaxLength="200" />
+    <Property Name="Dolwnost" Type="int" />
+    <Property Name="Pol" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Tovar">
+    <Key>
+      <PropertyRef Name="Kod_tovara" />
+    </Key>
+    <Property Name="Kod_tovara" Type="int" Nullable="false" />
+    <Property Name="Nazvanie" Type="nvarchar" MaxLength="200" />
+    <Property Name="Kolitewto_upakowok" Type="nvarchar" MaxLength="200" />
+    <Property Name="Thena_za_upakowku" Type="int" />
+    <Property Name="Tip_sklada" Type="int" />
+    <Property Name="Proizvoditel" Type="int" />
+    <Property Name="Postawsik" Type="nvarchar" MaxLength="200" />
+    <Property Name="Srok_xranenia" Type="nvarchar" MaxLength="200" />
+    <Property Name="Uslovia_xranenia" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Zakaz">
+    <Key>
+      <PropertyRef Name="Nomer_zakaza" />
+    </Key>
+    <Property Name="Nomer_zakaza" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Klient" Type="nvarchar" MaxLength="200" />
+    <Property Name="Kplitewto_upakowok" Type="nvarchar" MaxLength="200" />
+    <Property Name="Ves" Type="nvarchar" MaxLength="200" />
+    <Property Name="Data_dostavki" Type="datetime" />
+    <Property Name="Adres_dostavki" Type="nvarchar" MaxLength="200" />
+    <Property Name="Sotrudniki" Type="int" />
+    <Property Name="Nakladnaia" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="Zakaz/Tovar">
+    <Key>
+      <PropertyRef Name="Kod" />
+    </Key>
+    <Property Name="Kod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Kod_tovara" Type="int" />
+    <Property Name="Kod_zakaza" Type="int" />
+  </EntityType>
+  <Association Name="FK_Sotrudnik_Dolwnost">
+    <End Role="Dolwnost" Type="Self.Dolwnost" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dolwnost">
+        <PropertyRef Name="Kod_dolwnosti" />
+      </Principal>
+      <Dependent Role="Sotrudnik">
+        <PropertyRef Name="Dolwnost" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tovar_Proizvoditel">
+    <End Role="Proizvoditel" Type="Self.Proizvoditel" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tovar" Type="Self.Tovar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proizvoditel">
+        <PropertyRef Name="Kod_proizvoditelia" />
+      </Principal>
+      <Dependent Role="Tovar">
+        <PropertyRef Name="Proizvoditel" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tovar_Sklad">
+    <End Role="Sklad" Type="Self.Sklad" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Tovar" Type="Self.Tovar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sklad">
+        <PropertyRef Name="Nomer_sklada" />
+      </Principal>
+      <Dependent Role="Tovar">
+        <PropertyRef Name="Tip_sklada" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Zakaz/Tovar_Tovar">
+    <End Role="Tovar" Type="Self.Tovar" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Zakaz/Tovar" Type="Self.Zakaz/Tovar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tovar">
+        <PropertyRef Name="Kod_tovara" />
+      </Principal>
+      <Dependent Role="Zakaz/Tovar">
+        <PropertyRef Name="Kod_tovara" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Zakaz/Tovar_Zakaz">
+    <End Role="Zakaz" Type="Self.Zakaz" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Zakaz/Tovar" Type="Self.Zakaz/Tovar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zakaz">
+        <PropertyRef Name="Nomer_zakaza" />
+      </Principal>
+      <Dependent Role="Zakaz/Tovar">
+        <PropertyRef Name="Kod_zakaza" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Zakaz_Sotrudnik">
+    <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Zakaz" Type="Self.Zakaz" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sotrudnik">
+        <PropertyRef Name="ID_sotrudnika" />
+      </Principal>
+      <Dependent Role="Zakaz">
+        <PropertyRef Name="Sotrudniki" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище VKRskladModelContainer">
+    <EntitySet Name="Dolwnost" EntityType="Self.Dolwnost" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Proizvoditel" EntityType="Self.Proizvoditel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sklad" EntityType="Self.Sklad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sotrudnik" EntityType="Self.Sotrudnik" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tovar" EntityType="Self.Tovar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Zakaz" EntityType="Self.Zakaz" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Zakaz/Tovar" EntityType="Self.Zakaz/Tovar" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Sotrudnik_Dolwnost" Association="Self.FK_Sotrudnik_Dolwnost">
+      <End Role="Dolwnost" EntitySet="Dolwnost" />
+      <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tovar_Proizvoditel" Association="Self.FK_Tovar_Proizvoditel">
+      <End Role="Proizvoditel" EntitySet="Proizvoditel" />
+      <End Role="Tovar" EntitySet="Tovar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tovar_Sklad" Association="Self.FK_Tovar_Sklad">
+      <End Role="Sklad" EntitySet="Sklad" />
+      <End Role="Tovar" EntitySet="Tovar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Zakaz/Tovar_Tovar" Association="Self.FK_Zakaz/Tovar_Tovar">
+      <End Role="Tovar" EntitySet="Tovar" />
+      <End Role="Zakaz/Tovar" EntitySet="Zakaz/Tovar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Zakaz/Tovar_Zakaz" Association="Self.FK_Zakaz/Tovar_Zakaz">
+      <End Role="Zakaz" EntitySet="Zakaz" />
+      <End Role="Zakaz/Tovar" EntitySet="Zakaz/Tovar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Zakaz_Sotrudnik" Association="Self.FK_Zakaz_Sotrudnik">
+      <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+      <End Role="Zakaz" EntitySet="Zakaz" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

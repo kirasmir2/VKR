@@ -35,8 +35,8 @@
             <Button x:Name="But_Exit" Height="35" Width="35" Margin="3" Style="{StaticResource MainButton}" Background="White" VerticalAlignment="Top" HorizontalAlignment="Right" Click="But_Exit_Click">
                 <Image Height="20" Width="40" Source="/Resources/Image/Exit.png"></Image>
             </Button>
-            <TextBox Style="{StaticResource textBoxLog}"></TextBox>
-            <PasswordBox Style="{StaticResource passBoxLog}"></PasswordBox>
+            <TextBox x:Name="log_textbox" Style="{StaticResource textBoxLog}"></TextBox>
+            <PasswordBox x:Name="Pas_passbox" Style="{StaticResource passBoxLog}"></PasswordBox>
         </Grid>
     </Border>
 </Window>

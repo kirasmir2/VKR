@@ -10,5 +10,7 @@
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("modelbd.context.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("modelbd.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("skladmodel.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("skladmodel.tt")]
 
 

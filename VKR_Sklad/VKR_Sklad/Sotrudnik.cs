@@ -17,7 +17,7 @@ namespace VKR_Sklad
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Sotrudnik()
         {
-            this.Vozvratnaia_tara = new HashSet<Vozvratnaia_tara>();
+            this.Zakaz = new HashSet<Zakaz>();
         }
     
         public int ID_sotrudnika { get; set; }
@@ -26,13 +26,14 @@ namespace VKR_Sklad
         public string Otwewto { get; set; }
         public string Passportnii_dannie { get; set; }
         public string Nomer_telewona { get; set; }
-        public string Adress { get; set; }
+        public string Adres { get; set; }
         public string Login { get; set; }
         public string Parol { get; set; }
         public Nullable<int> Dolwnost { get; set; }
+        public string Pol { get; set; }
     
         public virtual Dolwnost Dolwnost1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Vozvratnaia_tara> Vozvratnaia_tara { get; set; }
+        public virtual ICollection<Zakaz> Zakaz { get; set; }
     }
 }

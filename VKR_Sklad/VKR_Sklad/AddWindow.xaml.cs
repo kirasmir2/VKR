@@ -14,16 +14,29 @@ using System.Windows.Shapes;
 
 namespace VKR_Sklad
 {
-    /// <summary>
-    /// Логика взаимодействия для AddWindow.xaml
-    /// </summary>
+
     public partial class AddWindow : Window
     {
+        public Tovar tovar { get; set; }
+        bool isAdd = false;
+        public AddWindow(Tovar tovar_window)
+        {
+            InitializeComponent();
+            this.tovar = tovar_window;
+            DataContext = tovar;
+            tipSklada_combo.ItemsSource = LearnBD.GetContext().Tovar.ToList();
+            proizvoditel_combo.ItemsSource = LearnBD.GetContext().Tovar.ToList();
+        }
         public AddWindow()
         {
             InitializeComponent();
+            isAdd = true;
+            tovar = new Tovar();
+            DataContext = tovar;
+            tipSklada_combo.ItemsSource = LearnBD.GetContext().Tovar.ToList();
+            proizvoditel_combo.ItemsSource = LearnBD.GetContext().Tovar.ToList();
         }
-        
+
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -34,6 +47,15 @@ namespace VKR_Sklad
 
         private void Close_but_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
+        }
+
+        private void dob_but_Click(object sender, RoutedEventArgs e)
+        {
+            if (isAdd == true)
+                LearnBD.GetContext().Tovar.Add(tovar);
+            LearnBD.GetContext().SaveChanges();
+            (this.Owner as SkladWindow).UpdateData();
             this.Close();
         }
     }

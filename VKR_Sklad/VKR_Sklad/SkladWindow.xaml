@@ -41,12 +41,11 @@
                     </Border>
 
                     <!--Название меню-->
-                    <TextBlock Text="ПРОТЕК" Foreground="White" FontSize="22" FontWeight="SemiBold"
+                        <TextBlock Text="СК кладовщика" Foreground="White" FontSize="18" FontWeight="SemiBold"
                                DockPanel.Dock="Top" TextAlignment="Center" Margin="5 25 0 10"></TextBlock>
                         <TextBlock Text="Фармацевтическая компания" Foreground="White" FontSize="13" FontWeight="SemiBold"
                                DockPanel.Dock="Top" TextAlignment="Center"></TextBlock>
-
-                    <!--Меню разделителя-->
+                        <!--Меню разделителя-->
                     <Separator Margin="25" DockPanel.Dock="Top" Height="0.8" Background="White"></Separator>
 
                     <!--Меню кнопки-->
@@ -216,7 +215,7 @@
                         </DataGridTemplateColumn>
 
                         <DataGridTextColumn Header="Количество упаковок" IsReadOnly="True" Width="*" Binding="{Binding Kolitewto_upakowok}"/>
-                        <DataGridTextColumn Header="Цена за упаковку" IsReadOnly="True" Width="*" Binding="{Binding Tena}"/>
+                        <DataGridTextColumn Header="Цена за упаковку" IsReadOnly="True" Width="*" Binding="{Binding Thena_za_upakowku}"/>
                         <DataGridTextColumn Header="Тип склада" IsReadOnly="True" Width="*" Binding="{Binding Sklad.Nazvanie}"/>
                         <DataGridTextColumn Header="Производитель" IsReadOnly="True" Width="*" Binding="{Binding Proizvoditel1.Nazvanie_kompanii}"/>
 

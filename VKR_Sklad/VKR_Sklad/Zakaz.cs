@@ -12,26 +12,24 @@ namespace VKR_Sklad
     using System;
     using System.Collections.Generic;
     
-    public partial class Tovar
+    public partial class Zakaz
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tovar()
+        public Zakaz()
         {
             this.Zakaz_Tovar = new HashSet<Zakaz_Tovar>();
         }
     
-        public int Kod_tovara { get; set; }
-        public string Nazvanie { get; set; }
-        public string Kolitewto_upakowok { get; set; }
-        public Nullable<int> Thena_za_upakowku { get; set; }
-        public Nullable<int> Tip_sklada { get; set; }
-        public Nullable<int> Proizvoditel { get; set; }
-        public string Postawsik { get; set; }
-        public string Srok_xranenia { get; set; }
-        public string Uslovia_xranenia { get; set; }
+        public int Nomer_zakaza { get; set; }
+        public string Klient { get; set; }
+        public string Kplitewto_upakowok { get; set; }
+        public string Ves { get; set; }
+        public Nullable<System.DateTime> Data_dostavki { get; set; }
+        public string Adres_dostavki { get; set; }
+        public Nullable<int> Sotrudniki { get; set; }
+        public string Nakladnaia { get; set; }
     
-        public virtual Proizvoditel Proizvoditel1 { get; set; }
-        public virtual Sklad Sklad { get; set; }
+        public virtual Sotrudnik Sotrudnik { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zakaz_Tovar> Zakaz_Tovar { get; set; }
     }

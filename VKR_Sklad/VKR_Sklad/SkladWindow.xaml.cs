@@ -16,11 +16,10 @@ using System.ComponentModel;
 
 namespace VKR_Sklad
 {
-    /// <summary>
-    /// Логика взаимодействия для SkladWindow.xaml
-    /// </summary>
+   
     public partial class SkladWindow : Window
     {
+      
         class Filter
         {
             public bool IsActive { get; set; } = false;
@@ -73,7 +72,6 @@ namespace VKR_Sklad
         {
             InitializeComponent();
             var converter = new BrushConverter();
-
             filters = new List<Filter>();
             sorts = new List<Sort>()
             {
@@ -144,8 +142,8 @@ namespace VKR_Sklad
                         else if (sort.DESC) tovars = tovars.OrderByDescending(p => p.Nazvanie).ToList();
                         break;
                     case 2:
-                        if (sort.ASC) tovars = tovars.OrderBy(p => p.Tena).ToList();
-                        else if (sort.DESC) tovars = tovars.OrderByDescending(p => p.Tena).ToList();
+                        if (sort.ASC) tovars = tovars.OrderBy(p => p.Thena_za_upakowku).ToList();
+                        else if (sort.DESC) tovars = tovars.OrderByDescending(p => p.Thena_za_upakowku).ToList();
                         break;
                 }
             }
@@ -198,8 +196,9 @@ namespace VKR_Sklad
 
         private void but_add_Click(object sender, RoutedEventArgs e)
         {
-            AddWindow addWindow = new AddWindow();
-            addWindow.Show();
+            AddWindow addEdtiForm = new AddWindow();
+            addEdtiForm.Owner = this;
+            addEdtiForm.Show();
         }
 
         private void Edit_but_Click(object sender, RoutedEventArgs e)

@@ -9,11 +9,11 @@ namespace VKR_Sklad
     class LearnBD
     {
         
-            private static VKR_SkladEntities _context;
-            public static VKR_SkladEntities GetContext()
+            private static VKRskladEntities _context;
+            public static VKRskladEntities GetContext()
             {
                 if (_context == null)
-                    _context = new VKR_SkladEntities();
+                    _context = new VKRskladEntities();
                 return _context;
             }
 

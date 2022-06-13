@@ -12,19 +12,13 @@ namespace VKR_Sklad
     using System;
     using System.Collections.Generic;
     
-    public partial class Proizvoditel
+    public partial class Zakaz_Tovar
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Proizvoditel()
-        {
-            this.Tovar = new HashSet<Tovar>();
-        }
+        public int Kod { get; set; }
+        public Nullable<int> Kod_tovara { get; set; }
+        public Nullable<int> Kod_zakaza { get; set; }
     
-        public int Kod_proizvoditelia { get; set; }
-        public string Nazvanie_kompanii { get; set; }
-        public string Adres { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tovar> Tovar { get; set; }
+        public virtual Tovar Tovar { get; set; }
+        public virtual Zakaz Zakaz { get; set; }
     }
 }

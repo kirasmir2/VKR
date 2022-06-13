@@ -40,12 +40,21 @@ namespace VKR_Sklad
 
         private void but_log_Click(object sender, RoutedEventArgs e)
         {
-            
-            SkladWindow skladWindow = new SkladWindow();
-            skladWindow.Show();
-            this.Close();
 
-            
+            if (!String.IsNullOrEmpty(log_textbox.Text))
+            {
+                if (!String.IsNullOrEmpty(Pas_passbox.Password))
+                {
+                    IQueryable<Sotrudnik> Пользователь_list = LearnBD.GetContext().Sotrudnik.Where(p => p.Login == log_textbox.Text && p.Parol == Pas_passbox.Password);
+                    if (Пользователь_list.Count() == 1)
+                    {                       
+                        SkladWindow window = new SkladWindow();
+                        window.Show();
+                        this.Close();
+                    }
+                    else MessageBox.Show("Неверный логин или пароль!");
+                }
+            }
         }
 
         private void but_exit_Click_1(object sender, RoutedEventArgs e)

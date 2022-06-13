@@ -26,17 +26,17 @@
                 </StackPanel>
 
                 <StackPanel Height="550" Width="220" Margin="250 90 0 0">
-                    <TextBox Style="{StaticResource textBoxWrite}" HorizontalAlignment="Left" Margin="0 5 0 0"></TextBox>
-                    <TextBox Style="{StaticResource textBoxWrite}" HorizontalAlignment="Left" Margin="0 14 0 0"></TextBox>
-                    <TextBox Style="{StaticResource textBoxWrite}" HorizontalAlignment="Left" Margin="0 14 0 0"></TextBox>
-                    <ComboBox Style="{StaticResource comboBoxFiltr}" HorizontalAlignment="Left" Margin="0 14 0 0"></ComboBox>
-                    <ComboBox Style="{StaticResource comboBoxFiltr}" HorizontalAlignment="Left" Margin="0 13 0 0"></ComboBox>
-                    <TextBox Style="{StaticResource textBoxWrite}" HorizontalAlignment="Left" Margin="0 14 0 0"></TextBox>
-                    <TextBox Style="{StaticResource textBoxWrite}" HorizontalAlignment="Left" Margin="0 14 0 0"></TextBox>
-                    <TextBox Style="{StaticResource textBoxWrite}" HorizontalAlignment="Left" Margin="0 14 0 0"></TextBox>
+                    <TextBox x:Name="nazvanie_textbox" Text="{Binding Nazvanie}" Style="{StaticResource textBoxWrite}" HorizontalAlignment="Left" Margin="0 5 0 0"></TextBox>
+                    <TextBox x:Name="kolvo_upakowok" Text="{Binding Kolitewto_upakowok}" Style="{StaticResource textBoxWrite}" HorizontalAlignment="Left" Margin="0 14 0 0"></TextBox>
+                    <TextBox x:Name="thena_upakovok" Text="{Binding Thena_za_upakowku}" Style="{StaticResource textBoxWrite}" HorizontalAlignment="Left" Margin="0 14 0 0"></TextBox>
+                    <ComboBox DisplayMemberPath="Sklad" x:Name="tipSklada_combo" SelectedItem="{Binding Tip_sklada}" Style="{StaticResource comboBoxFiltr}" HorizontalAlignment="Left" Margin="0 14 0 0"></ComboBox>
+                    <ComboBox DisplayMemberPath="Proizvoditel1" Name="proizvoditel_combo" SelectedItem="{Binding Proizvoditel}" Style="{StaticResource comboBoxFiltr}" HorizontalAlignment="Left" Margin="0 13 0 0"></ComboBox>
+                    <TextBox x:Name="postawsik_textbox" Text="{Binding Postawsik}" Style="{StaticResource textBoxWrite}" HorizontalAlignment="Left" Margin="0 14 0 0"></TextBox>
+                    <TextBox x:Name="srokXranenia_textbox" Text="{Binding Srok_xranenia}" Style="{StaticResource textBoxWrite}" HorizontalAlignment="Left" Margin="0 14 0 0"></TextBox>
+                    <TextBox x:Name="usloviaXranenia_textbox" Text="{Binding Uslovia_xranenia}" Style="{StaticResource textBoxWrite}" HorizontalAlignment="Left" Margin="0 14 0 0"></TextBox>
                 </StackPanel>
 
-                <Button Style="{StaticResource redButton}" VerticalAlignment="Bottom" Margin="0 0 200 30">
+                <Button x:Name="dob_but" Style="{StaticResource redButton}" VerticalAlignment="Bottom" Margin="0 0 200 30" Click="dob_but_Click">
                     <StackPanel Orientation="Horizontal">
                         <Icon:PackIconMaterial Kind="ContentSave" VerticalAlignment="Center" Width="14" Height="14" Margin="0 3 8 0"></Icon:PackIconMaterial>
                         <TextBlock Text="Добавить"></TextBlock>
