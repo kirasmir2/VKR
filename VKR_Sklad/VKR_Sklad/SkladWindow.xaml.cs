@@ -196,16 +196,32 @@ namespace VKR_Sklad
 
         private void but_add_Click(object sender, RoutedEventArgs e)
         {
-            AddWindow addEdtiForm = new AddWindow();
-            addEdtiForm.Owner = this;
-            addEdtiForm.Show();
+            AddWindow addWindow = new AddWindow();
+            addWindow.Owner = this;
+            addWindow.Show();
         }
 
         private void Edit_but_Click(object sender, RoutedEventArgs e)
         {
-            EditWindow editWindow = new EditWindow();
+            EditWindow editWindow = new EditWindow(memberDataGrid.SelectedItem as Tovar);
+            editWindow.Owner = this;
             editWindow.Show();
 
+        }
+
+        private void remove_but_Click(object sender, RoutedEventArgs e)
+        {
+            if (memberDataGrid.SelectedItems.Count != 0) // проверка, выделен ли элемент в списке
+            {
+                List<Tovar> tovars = memberDataGrid.SelectedItems.OfType<Tovar>().ToList();
+                MessageBoxResult messageBoxResult = MessageBox.Show("Вы действительно хоите удалить?", "Удаление", MessageBoxButton.YesNo);
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    LearnBD.GetContext().Tovar.RemoveRange(tovars);
+                    LearnBD.GetContext().SaveChanges();
+                    UpdateData();
+                }
+            }
         }
     }
     public class Member

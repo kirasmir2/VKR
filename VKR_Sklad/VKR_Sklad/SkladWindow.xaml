@@ -226,7 +226,7 @@
                                         <Button x:Name="Edit_but" Style="{StaticResource gridEditButton}" Click="Edit_but_Click">
                                             <Icon:PackIconMaterial Kind="PencilOffOutline"></Icon:PackIconMaterial>
                                         </Button>
-                                        <Button Style="{StaticResource gridRemoveButton}" Margin="5 0 0 0">
+                                        <Button x:Name="remove_but" Style="{StaticResource gridRemoveButton}" Margin="5 0 0 0" Click="remove_but_Click">
                                             <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"></Icon:PackIconMaterial>
                                         </Button>
                                     </StackPanel>
