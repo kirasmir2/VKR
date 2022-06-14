@@ -29,8 +29,8 @@
                     <TextBox x:Name="nazvanie_textbox" Text="{Binding Nazvanie}" Style="{StaticResource textBoxWrite}" HorizontalAlignment="Left" Margin="0 5 0 0"></TextBox>
                     <TextBox x:Name="kolvo_upakowok" Text="{Binding Kolitewto_upakowok}" Style="{StaticResource textBoxWrite}" HorizontalAlignment="Left" Margin="0 14 0 0"></TextBox>
                     <TextBox x:Name="thena_upakovok" Text="{Binding Thena_za_upakowku}" Style="{StaticResource textBoxWrite}" HorizontalAlignment="Left" Margin="0 14 0 0"></TextBox>
-                    <ComboBox DisplayMemberPath="Sklad" x:Name="tipSklada_combo" SelectedItem="{Binding Tip_sklada}" Style="{StaticResource comboBoxFiltr}" HorizontalAlignment="Left" Margin="0 14 0 0"></ComboBox>
-                    <ComboBox DisplayMemberPath="Proizvoditel1" Name="proizvoditel_combo" SelectedItem="{Binding Proizvoditel}" Style="{StaticResource comboBoxFiltr}" HorizontalAlignment="Left" Margin="0 13 0 0"></ComboBox>
+                    <ComboBox DisplayMemberPath="Nazvanie" x:Name="tipSklada_combo" SelectedItem="{Binding Sklad}" Style="{StaticResource comboBoxFiltr}" HorizontalAlignment="Left" Margin="0 14 0 0"></ComboBox>
+                    <ComboBox DisplayMemberPath="Nazvanie_kompanii" Name="proizvoditel_combo" SelectedItem="{Binding Proizvoditel1}" Style="{StaticResource comboBoxFiltr}" HorizontalAlignment="Left" Margin="0 13 0 0"></ComboBox>
                     <TextBox x:Name="postawsik_textbox" Text="{Binding Postawsik}" Style="{StaticResource textBoxWrite}" HorizontalAlignment="Left" Margin="0 14 0 0"></TextBox>
                     <TextBox x:Name="srokXranenia_textbox" Text="{Binding Srok_xranenia}" Style="{StaticResource textBoxWrite}" HorizontalAlignment="Left" Margin="0 14 0 0"></TextBox>
                     <TextBox x:Name="usloviaXranenia_textbox" Text="{Binding Uslovia_xranenia}" Style="{StaticResource textBoxWrite}" HorizontalAlignment="Left" Margin="0 14 0 0"></TextBox>

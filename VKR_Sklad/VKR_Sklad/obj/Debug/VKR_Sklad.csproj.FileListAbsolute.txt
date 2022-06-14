@@ -48,8 +48,6 @@ C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\bin\Debug\EntityFramework.
 C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\bin\Debug\ru\EntityFramework.resources.dll
 C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\obj\Debug\EditWindow.g.cs
 C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\obj\Debug\EditWindow.baml
-C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\obj\Debug\AddWindow - Копировать.g.cs
-C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\obj\Debug\AddWindow - Копировать.baml
 C:\Users\Кирилл\Desktop\VKR_Sklad\VKR_Sklad\bin\Debug\EntityFramework.dll
 C:\Users\Кирилл\Desktop\VKR_Sklad\VKR_Sklad\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Кирилл\Desktop\VKR_Sklad\VKR_Sklad\bin\Debug\MahApps.Metro.IconPacks.Core.dll
@@ -75,3 +73,6 @@ C:\Users\Кирилл\Desktop\VKR_Sklad\VKR_Sklad\obj\Debug\VKR_Sklad.Barcode_cr
 C:\Users\Кирилл\Desktop\VKR_Sklad\VKR_Sklad\obj\Debug\VKR_Sklad.csproj.CopyComplete
 C:\Users\Кирилл\Desktop\VKR_Sklad\VKR_Sklad\obj\Debug\AddWindow.g.cs
 C:\Users\Кирилл\Desktop\VKR_Sklad\VKR_Sklad\obj\Debug\AddWindow.baml
+C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\obj\Debug\AddWindow.g.cs
+C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\obj\Debug\AddWindow.baml
+C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\obj\Debug\VKR_Sklad.csprojAssemblyReference.cache

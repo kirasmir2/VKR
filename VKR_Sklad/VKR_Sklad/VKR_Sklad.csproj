@@ -83,7 +83,7 @@
       <DependentUpon>AddWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dolwnost.cs">
-      <DependentUpon>SkladModel.tt</DependentUpon>
+      <DependentUpon>ModelBD.tt</DependentUpon>
     </Compile>
     <Compile Include="EditWindow.xaml.cs">
       <DependentUpon>EditWindow.xaml</DependentUpon>
@@ -105,10 +105,10 @@
       <DependentUpon>ModelBD.edmx</DependentUpon>
     </Compile>
     <Compile Include="Proizvoditel.cs">
-      <DependentUpon>SkladModel.tt</DependentUpon>
+      <DependentUpon>ModelBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Sklad.cs">
-      <DependentUpon>SkladModel.tt</DependentUpon>
+      <DependentUpon>ModelBD.tt</DependentUpon>
     </Compile>
     <Compile Include="SkladModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -129,22 +129,19 @@
       <DependentUpon>SkladWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Sotrudnik.cs">
-      <DependentUpon>SkladModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Tovar.cs">
-      <DependentUpon>SkladModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Vozvratnaia_tara.cs">
       <DependentUpon>ModelBD.tt</DependentUpon>
     </Compile>
-    <Compile Include="Vozvratnia_tara_Tovar.cs">
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>ModelBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tovar.cs">
       <DependentUpon>ModelBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Zakaz.cs">
-      <DependentUpon>SkladModel.tt</DependentUpon>
+      <DependentUpon>ModelBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Zakaz_Tovar.cs">
-      <DependentUpon>SkladModel.tt</DependentUpon>
+      <DependentUpon>ModelBD.tt</DependentUpon>
     </Compile>
     <Page Include="AddWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

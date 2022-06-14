@@ -7,7 +7,7 @@
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         Title="EditWindow" 
-        Height="400" Width="500" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Height="500" Width="500" WindowStartupLocation="CenterScreen" WindowStyle="None"
         AllowsTransparency="True" Background="Transparent">
     <Grid>
         <Border Background="#2a76ff" CornerRadius="30" MouseDown="Border_MouseDown">
@@ -20,6 +20,9 @@
                     <TextBlock HorizontalAlignment="Right" Text="Цена за упаковку:" FontSize="23"  Margin="0 0 0 10" Foreground="White"></TextBlock>
                     <TextBlock HorizontalAlignment="Right" Text="Тип склада:" FontSize="23"  Margin="0 0 0 10" Foreground="White"></TextBlock>
                     <TextBlock HorizontalAlignment="Right" Text="Производитель:" FontSize="23"  Margin="0 0 0 10" Foreground="White"></TextBlock>
+                    <TextBlock HorizontalAlignment="Right" Text="Поставщик:" FontSize="23"  Margin="0 0 0 10" Foreground="White"></TextBlock>
+                    <TextBlock HorizontalAlignment="Right" Text="Срок хранения:" FontSize="23"  Margin="0 0 0 10" Foreground="White"></TextBlock>
+                    <TextBlock HorizontalAlignment="Right" Text="Условия хранения:" FontSize="23"  Margin="0 0 0 10" Foreground="White"></TextBlock>
                 </StackPanel>
 
                 <StackPanel Height="550" Width="220" Margin="250 90 0 0">
@@ -28,6 +31,9 @@
                     <TextBox Style="{StaticResource textBoxWrite}" HorizontalAlignment="Left" Margin="0 14 0 0"></TextBox>
                     <ComboBox Style="{StaticResource comboBoxFiltr}" HorizontalAlignment="Left" Margin="0 14 0 0"></ComboBox>
                     <ComboBox Style="{StaticResource comboBoxFiltr}" HorizontalAlignment="Left" Margin="0 13 0 0"></ComboBox>
+                    <TextBox x:Name="postawsik_textbox" Text="{Binding Postawsik}" Style="{StaticResource textBoxWrite}" HorizontalAlignment="Left" Margin="0 14 0 0"></TextBox>
+                    <TextBox x:Name="srokXranenia_textbox" Text="{Binding Srok_xranenia}" Style="{StaticResource textBoxWrite}" HorizontalAlignment="Left" Margin="0 14 0 0"></TextBox>
+                    <TextBox x:Name="usloviaXranenia_textbox" Text="{Binding Uslovia_xranenia}" Style="{StaticResource textBoxWrite}" HorizontalAlignment="Left" Margin="0 14 0 0"></TextBox>
                 </StackPanel>
 
                 <Button Style="{StaticResource redButton}" VerticalAlignment="Bottom" Margin="0 0 200 30">

@@ -29,8 +29,9 @@ namespace VKR_Sklad
         public virtual DbSet<Proizvoditel> Proizvoditel { get; set; }
         public virtual DbSet<Sklad> Sklad { get; set; }
         public virtual DbSet<Sotrudnik> Sotrudnik { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Tovar> Tovar { get; set; }
-        public virtual DbSet<Vozvratnaia_tara> Vozvratnaia_tara { get; set; }
-        public virtual DbSet<Vozvratnia_tara_Tovar> Vozvratnia_tara_Tovar { get; set; }
+        public virtual DbSet<Zakaz> Zakaz { get; set; }
+        public virtual DbSet<Zakaz_Tovar> Zakaz_Tovar { get; set; }
     }
 }

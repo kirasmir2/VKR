@@ -4,20 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="53bcca0b8d4947c3b46ddaee0c365741" Name="Diagram1">
-        <EntityTypeShape EntityType="VKR_SkladModel.Dolwnost" Width="1.5" PointX="1.5" PointY="12.75" />
-        <EntityTypeShape EntityType="VKR_SkladModel.Proizvoditel" Width="1.5" PointX="0.75" PointY="1.5" />
-        <EntityTypeShape EntityType="VKR_SkladModel.Sklad" Width="1.5" PointX="0.75" PointY="5.5" />
-        <EntityTypeShape EntityType="VKR_SkladModel.Sotrudnik" Width="1.5" PointX="0.75" PointY="8" />
+      <Diagram DiagramId="53bcca0b8d4947c3b46ddaee0c365741" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="VKR_SkladModel.Dolwnost" Width="1.5" PointX="1.5" PointY="13.625" />
+        <EntityTypeShape EntityType="VKR_SkladModel.Proizvoditel" Width="1.5" PointX="0.75" PointY="1.75" />
+        <EntityTypeShape EntityType="VKR_SkladModel.Sklad" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="VKR_SkladModel.Sotrudnik" Width="1.5" PointX="0.75" PointY="8.875" />
+        <EntityTypeShape EntityType="VKR_SkladModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="5.75" />
         <EntityTypeShape EntityType="VKR_SkladModel.Tovar" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="VKR_SkladModel.Vozvratnaia_tara" Width="1.5" PointX="3" PointY="8.25" />
-        <EntityTypeShape EntityType="VKR_SkladModel.Vozvratnia_tara_Tovar" Width="1.5" PointX="5.25" PointY="1.375" />
+        <EntityTypeShape EntityType="VKR_SkladModel.Zakaz" Width="1.5" PointX="3" PointY="9.125" />
+        <EntityTypeShape EntityType="VKR_SkladModel.Zakaz_Tovar" Width="1.5" PointX="5.25" PointY="1.625" />
         <AssociationConnector Association="VKR_SkladModel.FK_Sotrudnik_Dolwnost" />
         <AssociationConnector Association="VKR_SkladModel.FK_Tovar_Proizvoditel" />
         <AssociationConnector Association="VKR_SkladModel.FK_Tovar_Sklad" />
-        <AssociationConnector Association="VKR_SkladModel.FK_Vozvratnaia_tara_Sotrudnik" />
-        <AssociationConnector Association="VKR_SkladModel.FK_Vozvratnia_tara_Tovar_Tovar" />
-        <AssociationConnector Association="VKR_SkladModel.FK_Vozvratnia_tara_Tovar_Vozvratnaia_tara" />
+        <AssociationConnector Association="VKR_SkladModel.FK_Zakaz_Sotrudnik" />
+        <AssociationConnector Association="VKR_SkladModel.FK_Zakaz_Tovar_Tovar" />
+        <AssociationConnector Association="VKR_SkladModel.FK_Zakaz_Tovar_Zakaz" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

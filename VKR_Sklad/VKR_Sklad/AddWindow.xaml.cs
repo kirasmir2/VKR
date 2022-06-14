@@ -24,8 +24,8 @@ namespace VKR_Sklad
             InitializeComponent();
             this.tovar = tovar_window;
             DataContext = tovar;
-            tipSklada_combo.ItemsSource = LearnBD.GetContext().Tovar.ToList();
-            proizvoditel_combo.ItemsSource = LearnBD.GetContext().Tovar.ToList();
+            tipSklada_combo.ItemsSource = LearnBD.GetContext().Sklad.ToList();
+            proizvoditel_combo.ItemsSource = LearnBD.GetContext().Proizvoditel.ToList();
         }
         public AddWindow()
         {
@@ -33,8 +33,8 @@ namespace VKR_Sklad
             isAdd = true;
             tovar = new Tovar();
             DataContext = tovar;
-            tipSklada_combo.ItemsSource = LearnBD.GetContext().Tovar.ToList();
-            proizvoditel_combo.ItemsSource = LearnBD.GetContext().Tovar.ToList();
+            tipSklada_combo.ItemsSource = LearnBD.GetContext().Sklad.ToList();
+            proizvoditel_combo.ItemsSource = LearnBD.GetContext().Proizvoditel.ToList();
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
