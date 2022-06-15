@@ -19,9 +19,25 @@ namespace VKR_Sklad
     /// </summary>
     public partial class EditWindow : Window
     {
+        public Tovar tovar { get; set; }
+        bool isAdd = false;
+        public EditWindow(Tovar tovar_window)
+        {
+            InitializeComponent();
+            this.tovar = tovar_window;
+            DataContext = tovar;
+            tipSklada_combo.ItemsSource = LearnBD.GetContext().Sklad.ToList();
+            proizvoditel_combo.ItemsSource = LearnBD.GetContext().Proizvoditel.ToList();
+        }
+
         public EditWindow()
         {
             InitializeComponent();
+            isAdd = true;
+            tovar = new Tovar();
+            DataContext = tovar;
+            tipSklada_combo.ItemsSource = LearnBD.GetContext().Sklad.ToList();
+            proizvoditel_combo.ItemsSource = LearnBD.GetContext().Proizvoditel.ToList();
         }
 
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
@@ -34,6 +50,15 @@ namespace VKR_Sklad
 
         private void Close_but_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
+        }
+
+        private void save_but_Click(object sender, RoutedEventArgs e)
+        {
+            if (isAdd == true)
+                LearnBD.GetContext().Tovar.Add(tovar);
+            LearnBD.GetContext().SaveChanges();
+            (this.Owner as SkladWindow).UpdateData();
             this.Close();
         }
     }
