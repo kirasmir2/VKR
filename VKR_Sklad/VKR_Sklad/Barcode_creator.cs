@@ -143,5 +143,10 @@ namespace VKR_Sklad
         {
             this.Close();
         }
+
+        private void comboBox_name_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

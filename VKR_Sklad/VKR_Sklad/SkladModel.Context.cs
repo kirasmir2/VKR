@@ -26,11 +26,11 @@ namespace VKR_Sklad
         }
     
         public virtual DbSet<Dolwnost> Dolwnost { get; set; }
-        public virtual DbSet<Proizvoditel> Proizvoditel { get; set; }
+        public virtual DbSet<Klient> Klient { get; set; }
         public virtual DbSet<Sklad> Sklad { get; set; }
         public virtual DbSet<Sotrudnik> Sotrudnik { get; set; }
         public virtual DbSet<Tovar> Tovar { get; set; }
         public virtual DbSet<Zakaz> Zakaz { get; set; }
-        public virtual DbSet<Zakaz_Tovar> Zakaz_Tovar { get; set; }
+        public virtual DbSet<Proizvoditel> Proizvoditel { get; set; }
     }
 }

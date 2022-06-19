@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="53bcca0b8d4947c3b46ddaee0c365741" Name="Diagram1" ZoomLevel="74">
+      <Diagram DiagramId="53bcca0b8d4947c3b46ddaee0c365741" Name="Diagram1" ZoomLevel="103">
         <EntityTypeShape EntityType="VKR_SkladModel.Dolwnost" Width="1.5" PointX="1.5" PointY="13.625" />
         <EntityTypeShape EntityType="VKR_SkladModel.Proizvoditel" Width="1.5" PointX="0.75" PointY="1.75" />
         <EntityTypeShape EntityType="VKR_SkladModel.Sklad" Width="1.5" PointX="0.75" PointY="5.75" />

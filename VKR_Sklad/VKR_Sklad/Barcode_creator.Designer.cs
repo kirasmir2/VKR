@@ -43,9 +43,9 @@
             // 
             // pictureBox_barcode
             // 
-            this.pictureBox_barcode.Location = new System.Drawing.Point(11, 59);
+            this.pictureBox_barcode.Location = new System.Drawing.Point(8, 59);
             this.pictureBox_barcode.Name = "pictureBox_barcode";
-            this.pictureBox_barcode.Size = new System.Drawing.Size(140, 136);
+            this.pictureBox_barcode.Size = new System.Drawing.Size(410, 341);
             this.pictureBox_barcode.TabIndex = 0;
             this.pictureBox_barcode.TabStop = false;
             // 
@@ -54,7 +54,7 @@
             this.textBox_name.Location = new System.Drawing.Point(8, 33);
             this.textBox_name.Multiline = true;
             this.textBox_name.Name = "textBox_name";
-            this.textBox_name.Size = new System.Drawing.Size(270, 20);
+            this.textBox_name.Size = new System.Drawing.Size(537, 20);
             this.textBox_name.TabIndex = 1;
             this.textBox_name.TextChanged += new System.EventHandler(this.textBox_name_TextChanged);
             // 
@@ -69,19 +69,20 @@
             "QR_CODE",
             "MSI",
             "DATA_MATRIX"});
-            this.comboBox_name.Location = new System.Drawing.Point(157, 59);
+            this.comboBox_name.Location = new System.Drawing.Point(424, 59);
             this.comboBox_name.Name = "comboBox_name";
             this.comboBox_name.Size = new System.Drawing.Size(121, 21);
             this.comboBox_name.TabIndex = 2;
             this.comboBox_name.Text = "CODEBAR";
+            this.comboBox_name.SelectedIndexChanged += new System.EventHandler(this.comboBox_name_SelectedIndexChanged);
             // 
             // but_save
             // 
             this.but_save.BackColor = System.Drawing.Color.Transparent;
             this.but_save.ForeColor = System.Drawing.Color.Black;
-            this.but_save.Location = new System.Drawing.Point(157, 86);
+            this.but_save.Location = new System.Drawing.Point(424, 86);
             this.but_save.Name = "but_save";
-            this.but_save.Size = new System.Drawing.Size(98, 23);
+            this.but_save.Size = new System.Drawing.Size(121, 23);
             this.but_save.TabIndex = 3;
             this.but_save.Text = "Сохранить";
             this.but_save.UseVisualStyleBackColor = false;
@@ -89,9 +90,9 @@
             // 
             // but_decipher
             // 
-            this.but_decipher.Location = new System.Drawing.Point(156, 115);
+            this.but_decipher.Location = new System.Drawing.Point(424, 115);
             this.but_decipher.Name = "but_decipher";
-            this.but_decipher.Size = new System.Drawing.Size(99, 23);
+            this.but_decipher.Size = new System.Drawing.Size(121, 23);
             this.but_decipher.TabIndex = 4;
             this.but_decipher.Text = "Расшифровать";
             this.but_decipher.UseVisualStyleBackColor = true;
@@ -99,9 +100,9 @@
             // 
             // but_download
             // 
-            this.but_download.Location = new System.Drawing.Point(156, 144);
+            this.but_download.Location = new System.Drawing.Point(424, 144);
             this.but_download.Name = "but_download";
-            this.but_download.Size = new System.Drawing.Size(99, 23);
+            this.but_download.Size = new System.Drawing.Size(121, 23);
             this.but_download.TabIndex = 5;
             this.but_download.Text = "Загрузить";
             this.but_download.UseVisualStyleBackColor = true;
@@ -124,9 +125,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(157, 173);
+            this.button1.Location = new System.Drawing.Point(424, 173);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(98, 23);
+            this.button1.Size = new System.Drawing.Size(121, 23);
             this.button1.TabIndex = 7;
             this.button1.Text = "Выход";
             this.button1.UseVisualStyleBackColor = true;
@@ -137,7 +138,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(290, 203);
+            this.ClientSize = new System.Drawing.Size(557, 412);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.but_download);

@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Image\Logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -83,10 +86,13 @@
       <DependentUpon>AddWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dolwnost.cs">
-      <DependentUpon>ModelBD.tt</DependentUpon>
+      <DependentUpon>SkladModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EditWindow.xaml.cs">
       <DependentUpon>EditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Klient.cs">
+      <DependentUpon>SkladModel.tt</DependentUpon>
     </Compile>
     <Compile Include="LearnBD.cs" />
     <Compile Include="ModelBD.Context.cs">
@@ -105,10 +111,11 @@
       <DependentUpon>ModelBD.edmx</DependentUpon>
     </Compile>
     <Compile Include="Proizvoditel.cs">
-      <DependentUpon>ModelBD.tt</DependentUpon>
+      <DependentUpon>SkladModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Converter\ListToStringConverter.cs" />
     <Compile Include="Sklad.cs">
-      <DependentUpon>ModelBD.tt</DependentUpon>
+      <DependentUpon>SkladModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SkladModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -129,16 +136,16 @@
       <DependentUpon>SkladWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Sotrudnik.cs">
-      <DependentUpon>ModelBD.tt</DependentUpon>
+      <DependentUpon>SkladModel.tt</DependentUpon>
     </Compile>
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>ModelBD.tt</DependentUpon>
     </Compile>
     <Compile Include="Tovar.cs">
-      <DependentUpon>ModelBD.tt</DependentUpon>
+      <DependentUpon>SkladModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Zakaz.cs">
-      <DependentUpon>ModelBD.tt</DependentUpon>
+      <DependentUpon>SkladModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Zakaz_Tovar.cs">
       <DependentUpon>ModelBD.tt</DependentUpon>
@@ -229,6 +236,8 @@
       <DependentUpon>ModelBD.edmx</DependentUpon>
       <LastGenOutput>ModelBD.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Image\Logo.png" />
+    <Resource Include="Resources\Image\Logo.ico" />
     <Content Include="SkladModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SkladModel.edmx</DependentUpon>
@@ -239,15 +248,12 @@
       <DependentUpon>SkladModel.edmx</DependentUpon>
       <LastGenOutput>SkladModel.cs</LastGenOutput>
     </Content>
-    <Resource Include="Resources\Image\Logo.png" />
     <Resource Include="Resources\Image\Exit.png" />
     <Resource Include="Resources\Image\Login.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\Converter\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

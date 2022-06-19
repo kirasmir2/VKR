@@ -17,20 +17,20 @@ namespace VKR_Sklad
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Zakaz()
         {
-            this.Zakaz_Tovar = new HashSet<Zakaz_Tovar>();
+            this.Tovar = new HashSet<Tovar>();
         }
     
         public int Nomer_zakaza { get; set; }
-        public string Klient { get; set; }
+        public Nullable<int> Klient { get; set; }
         public string Kplitewto_upakowok { get; set; }
         public string Ves { get; set; }
         public Nullable<System.DateTime> Data_dostavki { get; set; }
         public string Adres_dostavki { get; set; }
         public Nullable<int> Sotrudniki { get; set; }
-        public string Nakladnaia { get; set; }
     
+        public virtual Klient Klient1 { get; set; }
         public virtual Sotrudnik Sotrudnik { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Zakaz_Tovar> Zakaz_Tovar { get; set; }
+        public virtual ICollection<Tovar> Tovar { get; set; }
     }
 }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:VKR_Sklad"
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"       
         mc:Ignorable="d" AllowsTransparency="True"
-        Title="MainWindow" MinHeight="450" MaxHeight="450" MinWidth="500" MaxWidth="500" Height="450" Width="500" WindowStyle="None" Background="Transparent" WindowStartupLocation="CenterScreen">
+        Title="Авторизация" MinHeight="450" MaxHeight="450" MinWidth="500" MaxWidth="500" Height="450" Width="500" WindowStyle="None" Background="Transparent" WindowStartupLocation="CenterScreen">
     <Window.Resources>
     </Window.Resources>
     <Border CornerRadius="25" MouseDown="Border_MouseDown">

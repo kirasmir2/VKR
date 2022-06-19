@@ -129,6 +129,7 @@ namespace VKR_Sklad
         {           
             LearnBD.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
             List<Tovar> tovars = LearnBD.GetContext().Tovar.ToList();
+            List<Zakaz> zakaz_Tovars = LearnBD.GetContext().Zakaz.ToList();
             List<Sklad> sklads = filters.Where(p => p.IsActive == true).Select(p => p.sklad).ToList();
             if (sklads.Count != 0) tovars = tovars.Where(p => sklads.Contains(p.Sklad)).ToList();
             if (!String.IsNullOrWhiteSpace(txtSearch.Text))
@@ -159,7 +160,7 @@ namespace VKR_Sklad
 
 
 
-
+            sotrDataGrid.ItemsSource = zakaz_Tovars;
             memberDataGrid.ItemsSource = tovars.ToList();
         }
 
@@ -222,6 +223,30 @@ namespace VKR_Sklad
                     UpdateData();
                 }
             }
+        }
+
+        private void Window_Activated(object sender, EventArgs e)
+        {
+            sotrDataGrid.Visibility = Visibility.Hidden;
+            sotrDataGrid.IsEnabled = false;
+        }
+
+        private void zakaz_but_Click(object sender, RoutedEventArgs e)
+        {
+            sotrDataGrid.Visibility = Visibility.Visible;
+            sotrDataGrid.IsEnabled = true;
+            memberDataGrid.Visibility = Visibility.Hidden;
+            memberDataGrid.IsEnabled = false;          
+            all_text.Text = "Список заказов";
+        }
+
+        private void tovar_but_Click(object sender, RoutedEventArgs e)
+        {
+            sotrDataGrid.Visibility = Visibility.Hidden;
+            sotrDataGrid.IsEnabled = false;
+            memberDataGrid.Visibility = Visibility.Visible;
+            memberDataGrid.IsEnabled = true;
+            all_text.Text = "Список товаров";
         }
     }
     public class Member
