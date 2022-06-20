@@ -130,6 +130,8 @@ namespace VKR_Sklad
             LearnBD.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
             List<Tovar> tovars = LearnBD.GetContext().Tovar.ToList();
             List<Zakaz> zakaz_Tovars = LearnBD.GetContext().Zakaz.ToList();
+            List<Sklad> sklads1 = LearnBD.GetContext().Sklad.ToList();
+            List<Sotrudnik> sotrudniks = LearnBD.GetContext().Sotrudnik.ToList();
             List<Sklad> sklads = filters.Where(p => p.IsActive == true).Select(p => p.sklad).ToList();
             if (sklads.Count != 0) tovars = tovars.Where(p => sklads.Contains(p.Sklad)).ToList();
             if (!String.IsNullOrWhiteSpace(txtSearch.Text))
@@ -158,8 +160,8 @@ namespace VKR_Sklad
 
 
 
-
-
+            skladDataGrid.ItemsSource = sklads1;
+            sotrudnikDataGrid.ItemsSource = sotrudniks;
             sotrDataGrid.ItemsSource = zakaz_Tovars;
             memberDataGrid.ItemsSource = tovars.ToList();
         }
@@ -236,7 +238,9 @@ namespace VKR_Sklad
             sotrDataGrid.Visibility = Visibility.Visible;
             sotrDataGrid.IsEnabled = true;
             memberDataGrid.Visibility = Visibility.Hidden;
-            memberDataGrid.IsEnabled = false;          
+            memberDataGrid.IsEnabled = false;
+            sotrudnikDataGrid.Visibility = Visibility.Hidden;
+            sotrudnikDataGrid.IsEnabled = false;
             all_text.Text = "Список заказов";
         }
 
@@ -246,7 +250,42 @@ namespace VKR_Sklad
             sotrDataGrid.IsEnabled = false;
             memberDataGrid.Visibility = Visibility.Visible;
             memberDataGrid.IsEnabled = true;
+            sotrudnikDataGrid.Visibility = Visibility.Hidden;
+            sotrudnikDataGrid.IsEnabled = false;
+            skladDataGrid.Visibility = Visibility.Hidden;
+            skladDataGrid.IsEnabled = false;
             all_text.Text = "Список товаров";
+        }
+
+        private void sotr_but_Click(object sender, RoutedEventArgs e)
+        {
+            sotrudnikDataGrid.Visibility = Visibility.Visible;
+            sotrudnikDataGrid.IsEnabled = true;
+            sotrDataGrid.Visibility = Visibility.Hidden;
+            sotrDataGrid.IsEnabled = false;
+            memberDataGrid.Visibility = Visibility.Hidden;
+            memberDataGrid.IsEnabled = false;
+            skladDataGrid.Visibility = Visibility.Hidden;
+            skladDataGrid.IsEnabled = false;
+            all_text.Text = "Список сотрудников";
+        }
+
+        private void sklad_but_Click(object sender, RoutedEventArgs e)
+        {
+            sotrudnikDataGrid.Visibility = Visibility.Hidden;
+            sotrudnikDataGrid.IsEnabled = false;
+            sotrDataGrid.Visibility = Visibility.Hidden;
+            sotrDataGrid.IsEnabled = false;
+            memberDataGrid.Visibility = Visibility.Hidden;
+            memberDataGrid.IsEnabled = false;
+            skladDataGrid.Visibility = Visibility.Visible;
+            skladDataGrid.IsEnabled = true;
+            all_text.Text = "Список складов";
+        }
+
+        private void otwet_but_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
     public class Member
