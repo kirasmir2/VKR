@@ -13,6 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.ComponentModel;
+using Word = Microsoft.Office.Interop.Word;
+using SaveFileDialog = Microsoft.Win32.SaveFileDialog;
+
 
 namespace VKR_Sklad
 {
@@ -131,6 +134,7 @@ namespace VKR_Sklad
             List<Tovar> tovars = LearnBD.GetContext().Tovar.ToList();
             List<Zakaz> zakaz_Tovars = LearnBD.GetContext().Zakaz.ToList();
             List<Sklad> sklads1 = LearnBD.GetContext().Sklad.ToList();
+            List<Klient> klients = LearnBD.GetContext().Klient.ToList();
             List<Sotrudnik> sotrudniks = LearnBD.GetContext().Sotrudnik.ToList();
             List<Sklad> sklads = filters.Where(p => p.IsActive == true).Select(p => p.sklad).ToList();
             if (sklads.Count != 0) tovars = tovars.Where(p => sklads.Contains(p.Sklad)).ToList();
@@ -159,7 +163,7 @@ namespace VKR_Sklad
 
 
 
-
+            klientDataGrid.ItemsSource = klients;
             skladDataGrid.ItemsSource = sklads1;
             sotrudnikDataGrid.ItemsSource = sotrudniks;
             sotrDataGrid.ItemsSource = zakaz_Tovars;
@@ -239,8 +243,12 @@ namespace VKR_Sklad
             sotrDataGrid.IsEnabled = true;
             memberDataGrid.Visibility = Visibility.Hidden;
             memberDataGrid.IsEnabled = false;
+            klientDataGrid.Visibility = Visibility.Hidden;
+            klientDataGrid.IsEnabled = false;
             sotrudnikDataGrid.Visibility = Visibility.Hidden;
             sotrudnikDataGrid.IsEnabled = false;
+            skladDataGrid.Visibility = Visibility.Hidden;
+            skladDataGrid.IsEnabled = false;
             all_text.Text = "Список заказов";
         }
 
@@ -251,6 +259,8 @@ namespace VKR_Sklad
             memberDataGrid.Visibility = Visibility.Visible;
             memberDataGrid.IsEnabled = true;
             sotrudnikDataGrid.Visibility = Visibility.Hidden;
+            klientDataGrid.Visibility = Visibility.Hidden;
+            klientDataGrid.IsEnabled = false;
             sotrudnikDataGrid.IsEnabled = false;
             skladDataGrid.Visibility = Visibility.Hidden;
             skladDataGrid.IsEnabled = false;
@@ -264,6 +274,8 @@ namespace VKR_Sklad
             sotrDataGrid.Visibility = Visibility.Hidden;
             sotrDataGrid.IsEnabled = false;
             memberDataGrid.Visibility = Visibility.Hidden;
+            klientDataGrid.Visibility = Visibility.Hidden;
+            klientDataGrid.IsEnabled = false;
             memberDataGrid.IsEnabled = false;
             skladDataGrid.Visibility = Visibility.Hidden;
             skladDataGrid.IsEnabled = false;
@@ -278,6 +290,8 @@ namespace VKR_Sklad
             sotrDataGrid.IsEnabled = false;
             memberDataGrid.Visibility = Visibility.Hidden;
             memberDataGrid.IsEnabled = false;
+            klientDataGrid.Visibility = Visibility.Hidden;
+            klientDataGrid.IsEnabled = false;
             skladDataGrid.Visibility = Visibility.Visible;
             skladDataGrid.IsEnabled = true;
             all_text.Text = "Список складов";
@@ -285,7 +299,62 @@ namespace VKR_Sklad
 
         private void otwet_but_Click(object sender, RoutedEventArgs e)
         {
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.Filter = "Word documents (*.docx) |*.docx";
+            if (saveFile.ShowDialog() == true)
+            {
+                object oMiss = System.Reflection.Missing.Value;
+                Word.Application wordapp = new Word.Application();
+                wordapp.Visible = true;
+                Word.Document doc = wordapp.Documents.Add(ref oMiss, ref oMiss, ref oMiss, ref oMiss);
+                Word.Paragraph pargar = doc.Content.Paragraphs.Add(ref oMiss);
+                pargar.Range.Text = "Отчёт по товарам на складе";
+                pargar.Range.Font.Color = Word.WdColor.wdColorBlack;
+                pargar.Range.Font.Bold = 1;
+                pargar.Range.Font.Size = 14f;
+                pargar.Range.Font.Name = "Times New Roman";
+                pargar.Alignment = Word.WdParagraphAlignment.wdAlignParagraphCenter;
+                pargar.Range.InsertParagraphAfter();
+                Word.Paragraph table_par = doc.Content.Paragraphs.Add(ref oMiss);
+                Word.Table table = doc.Content.Tables.Add(table_par.Range, LearnBD.GetContext().Tovar.Count(), 4, ref oMiss, ref oMiss);
+                table.Range.Font.Size = 10f;
+                table.Range.Font.Bold = 0;
+                table.Rows[1].Range.Font.Bold = 1;
+                /*Поля*/
+                table.Cell(1, 1).Range.Text = "Название";
+                table.Cell(1, 2).Range.Text = "Производитель";
+                table.Cell(1, 3).Range.Text = "Количество";
+                table.Cell(1, 4).Range.Text = "Место хранения";
+                table.Borders.InsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+                table.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+                /*Подключение базы данных*/
+                for (int i = 0; i < LearnBD.GetContext().Tovar.Count(); i++)
+                {
+                    var zzz = LearnBD.GetContext().Tovar.ToList()[i];
+                    table.Cell(i + 2, 1).Range.Text = LearnBD.GetContext().Tovar.ToList()[i].Nazvanie;
+                    table.Cell(i + 2, 2).Range.Text = LearnBD.GetContext().Tovar.Where(p => p.Nomer_tovara == zzz.Nomer_tovara).First().Proizvoditel1.Nazvanie_kompanii;
+                    table.Cell(i + 2, 3).Range.Text = LearnBD.GetContext().Tovar.ToList()[i].Kolitewto_upakowok;
+                    table.Cell(i + 2, 4).Range.Text = LearnBD.GetContext().Tovar.Where(p => p.Nomer_tovara == zzz.Nomer_tovara).First().Sklad.Nazvanie;
+                }
+                doc.SaveAs2(saveFile.FileName, ref oMiss, ref oMiss, ref oMiss, ref oMiss, ref oMiss,
+                ref oMiss, ref oMiss, ref oMiss, ref oMiss, ref oMiss,
+                ref oMiss, ref oMiss, ref oMiss, ref oMiss, ref oMiss);
+            }
+        }
 
+        private void klient_but_Click(object sender, RoutedEventArgs e)
+        {
+            sotrudnikDataGrid.Visibility = Visibility.Hidden;
+            sotrudnikDataGrid.IsEnabled = false;
+            sotrDataGrid.Visibility = Visibility.Hidden;
+            sotrDataGrid.IsEnabled = false;
+            memberDataGrid.Visibility = Visibility.Hidden;
+            memberDataGrid.IsEnabled = false;
+            skladDataGrid.Visibility = Visibility.Hidden;
+            skladDataGrid.IsEnabled = false;
+            klientDataGrid.Visibility = Visibility.Visible;
+            klientDataGrid.IsEnabled = true;
+            all_text.Text = "Список клиентов";
         }
     }
     public class Member

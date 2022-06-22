@@ -173,7 +173,7 @@
                     <Button x:Name="zakaz_but" Width="120" Content="Заказы" Style="{StaticResource tabButton}" Click="zakaz_but_Click"></Button>
                     <Button x:Name="sotr_but" Width="120" Content="Сотрудники" Style="{StaticResource tabButton}" Click="sotr_but_Click"></Button>
                     <Button x:Name="sklad_but" Width="120" Content="Склады" Style="{StaticResource tabButton}" Click="sklad_but_Click"></Button>
-                    <Button x:Name="klient_but" Width="120" Content="Клиент" Style="{StaticResource tabButton}" Click="sklad_but_Click"></Button>
+                    <Button x:Name="klient_but" Width="120" Content="Клиенты" Style="{StaticResource tabButton}" Click="klient_but_Click"></Button>
                 </StackPanel>
                 
                 <!--Название счетчика-->
@@ -303,7 +303,8 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-
+                      
+                        <DataGridTextColumn Header="Дата доставки" IsReadOnly="True" Width="*" Binding="{Binding Data_dostavki}"/>
                         <DataGridTextColumn Header="Клиент" IsReadOnly="True" Width="*"  Binding="{Binding Klient1.Naimenovanie}"/>
                         <DataGridTextColumn Header="Вес" IsReadOnly="True" Width="*" Binding="{Binding Ves}"/>
 
@@ -402,6 +403,55 @@
                         <DataGridTextColumn Header="Условия хранения" IsReadOnly="True" Width="*" Binding="{Binding Uslovie_xranenia}"/>
 
 
+                        <DataGridTemplateColumn Header="Операции" IsReadOnly="True" Width="auto">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button x:Name="Edit_but" Style="{StaticResource gridEditButton}" Click="Edit_but_Click">
+                                            <Icon:PackIconMaterial Kind="PencilOffOutline"></Icon:PackIconMaterial>
+                                        </Button>
+                                        <Button x:Name="remove_but" Style="{StaticResource gridRemoveButton}" Margin="5 0 0 0" Click="remove_but_Click">
+                                            <Icon:PackIconMaterial Kind="DeleteOutline" Style="{StaticResource gridButtonIcon}"></Icon:PackIconMaterial>
+                                        </Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+
+                <!--Таблица клиентов-->
+                <DataGrid Visibility="Hidden" IsEnabled="False" x:Name="klientDataGrid" Grid.Row="5" RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" Style="{DynamicResource DataGridStyle1}">
+                    <DataGrid.Columns>
+                        <DataGridCheckBoxColumn CanUserResize="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">
+                            <DataGridCheckBoxColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <CheckBox Style="{StaticResource CheckBoxStyle1}"/>
+                                </DataTemplate>
+                            </DataGridCheckBoxColumn.HeaderTemplate>
+                        </DataGridCheckBoxColumn>
+
+                        <DataGridTextColumn Header="#" IsReadOnly="True" CanUserResize="False" Width="auto" Binding="{Binding Kod_klienta}"/>
+                        <DataGridTemplateColumn Header="Наименование" IsReadOnly="True" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Border Width="auto" Height="25" CornerRadius="50" Margin="0 0 0 0" Background="{Binding BgColor}" >
+                                            <TextBlock Text="{Binding Character}" VerticalAlignment="Center" HorizontalAlignment="Center"  Foreground="White" Margin="0 0 0 1"></TextBlock>
+                                        </Border>
+                                        <TextBlock Text="{Binding Naimenovanie}" VerticalAlignment="Center"></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTextColumn Header="Адрес" IsReadOnly="True" Width="*" Binding="{Binding Adres}"/>
+                        <DataGridTextColumn Header="Дополнительная информация" IsReadOnly="True" Width="*" Binding="{Binding Dopolnitelnaia_informawia}"/>
+                        <DataGridTextColumn Header="Номер телефона" IsReadOnly="True" Width="*" Binding="{Binding Nomer_telewona}"/>
+                        
                         <DataGridTemplateColumn Header="Операции" IsReadOnly="True" Width="auto">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>

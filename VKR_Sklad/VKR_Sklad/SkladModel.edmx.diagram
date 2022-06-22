@@ -4,13 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e7591229b3154ca8b7b869e58fd3aaa2" Name="Diagram1" ZoomLevel="82">
+      <Diagram DiagramId="e7591229b3154ca8b7b869e58fd3aaa2" Name="Diagram1" ZoomLevel="108">
         <EntityTypeShape EntityType="VKRskladModel.Dolwnost" Width="1.5" PointX="0.75" PointY="9.125" />
         <EntityTypeShape EntityType="VKRskladModel.Klient" Width="1.5" PointX="3" PointY="5.5" />
         <EntityTypeShape EntityType="VKRskladModel.Sklad" Width="1.5" PointX="0.75" PointY="1.625" />
         <EntityTypeShape EntityType="VKRskladModel.Sotrudnik" Width="1.5" PointX="3" PointY="8.375" />
-        <EntityTypeShape EntityType="VKRskladModel.Tovar" Width="1.5" PointX="3" PointY="1" />
-        <EntityTypeShape EntityType="VKRskladModel.Zakaz" Width="1.5" PointX="5.25" PointY="1.125" />
+        <EntityTypeShape EntityType="VKRskladModel.Tovar" Width="1.5" PointX="3.125" PointY="1" />
+        <EntityTypeShape EntityType="VKRskladModel.Zakaz" Width="1.5" PointX="5.375" PointY="1.125" />
         <AssociationConnector Association="VKRskladModel.FK_Sotrudnik_Dolwnost" />
         <AssociationConnector Association="VKRskladModel.FK_Zakaz_Klient" />
         <AssociationConnector Association="VKRskladModel.FK_Tovar_Sklad" />

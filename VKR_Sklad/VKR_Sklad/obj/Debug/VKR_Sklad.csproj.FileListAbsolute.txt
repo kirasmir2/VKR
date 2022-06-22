@@ -76,4 +76,4 @@ C:\Users\Кирилл\Desktop\VKR_Sklad\VKR_Sklad\obj\Debug\AddWindow.baml
 C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\obj\Debug\AddWindow.g.cs
 C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\obj\Debug\AddWindow.baml
 C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\obj\Debug\VKR_Sklad.csprojAssemblyReference.cache
+C:\Users\Кирилл\Desktop\VKR\VKR_Sklad\VKR_Sklad\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
